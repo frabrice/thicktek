@@ -3,29 +3,19 @@ import { Users } from 'lucide-react';
 import { LeaderCard } from './Leadership/LeaderCard';
 
 export function Leadership() {
-  const leaders = [
-    {
-      name: 'Niyigena Fabrice',
-      role: 'Founder & CEO',
-      image: 'https://raw.githubusercontent.com/frabrice/EricApt/refs/heads/main/Fabrice%20Eleviqra.jpeg',
-      bio: 'Visionary leader driving innovation and excellence in technology solutions across Africa.',
-      linkedin: 'https://www.linkedin.com/in/niyigena-fabrice-09a346181/',
-    },
-    {
-      name: 'Rukundo Providence U.',
-      role: 'Chief Operations Officer',
-      image: 'https://raw.githubusercontent.com/frabrice/EricApt/refs/heads/main/Provi%20Thick%20Tek.jpeg',
-      bio: 'Strategic operations leader ensuring seamless delivery of innovative solutions.',
-      linkedin: 'https://www.linkedin.com/in/providence-uwimana-rukundo-534236218/',
-    },
-    {
-      name: 'Sandrine Ishimwe',
-      role: 'Chief Innovation Officer',
-      image: 'https://raw.githubusercontent.com/frabrice/EricApt/refs/heads/main/Sando%20Thick%20Tek.jpeg',
-      bio: 'Leading breakthrough research and innovation initiatives.',
-      linkedin: 'https://www.linkedin.com/in/ishimwe-sandrine-44ab9512b/',
-    },
-  ];
+  const leader = {
+    name: 'Niyigena Fabrice',
+    role: 'Founder & CEO',
+    image: 'https://raw.githubusercontent.com/frabrice/EricApt/refs/heads/main/Fabrice%20Eleviqra.jpeg',
+    bio: 'Visionary leader driving innovation and excellence in technology solutions across Africa. With a passion for transformative technology and a deep understanding of African markets, Fabrice leads ThickTek\'s mission to empower businesses through innovative solutions. His leadership has been instrumental in establishing ThickTek as a leading force in African technology innovation, focusing on delivering cutting-edge solutions that address real-world challenges.',
+    linkedin: 'https://www.linkedin.com/in/niyigena-fabrice-09a346181/',
+    twitter: 'https://x.com/FabUmusinga',
+    achievements: [
+      'Pioneer in African Tech Innovation',
+      'Digital Transformation Expert',
+      'Tech Community Leader'
+    ]
+  };
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -41,7 +31,7 @@ export function Leadership() {
             className="inline-flex items-center justify-center p-2 mb-6 rounded-full bg-primary/10"
           >
             <Users className="w-5 h-5 text-primary mr-2" />
-            <span className="text-sm font-medium">Leadership Team</span>
+            <span className="text-sm font-medium">Leadership</span>
           </motion.div>
           
           <motion.h2
@@ -51,7 +41,7 @@ export function Leadership() {
             viewport={{ once: true }}
             className="text-4xl font-bold mb-4"
           >
-            Meet Our Visionaries
+            Our Visionary Leadership
           </motion.h2>
           
           <motion.p
@@ -61,16 +51,12 @@ export function Leadership() {
             viewport={{ once: true }}
             className="text-muted-foreground"
           >
-            Exceptional leaders driving innovation and excellence in African technology
+            Driving innovation and excellence in African technology
           </motion.p>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {leaders.map((leader, index) => (
-              <LeaderCard key={leader.name} {...leader} index={index} />
-            ))}
-          </div>
+          <LeaderCard {...leader} index={0} />
         </div>
       </div>
       

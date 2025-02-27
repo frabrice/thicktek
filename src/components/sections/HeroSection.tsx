@@ -43,7 +43,7 @@ export default function HeroSection() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
           >
-            Empowering Innovation, Shaping the Future
+            Building solutions that move the world.
           </motion.h1>
           
           <motion.p
