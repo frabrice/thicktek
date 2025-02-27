@@ -116,7 +116,7 @@ export function LeaderCard({ name, role, image, bio, linkedin, twitter, achievem
               viewport={{ once: true }}
               className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-auto"
             >
-              {achievements.map((achievement, i) => (
+              {achievements.map((achievement) => (
                 <div
                   key={achievement}
                   className="flex items-center p-3 rounded-lg bg-primary/5"
