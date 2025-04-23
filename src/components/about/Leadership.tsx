@@ -8,8 +8,8 @@ export function Leadership() {
     role: 'Founder & CEO',
     image: 'https://raw.githubusercontent.com/frabrice/EricApt/refs/heads/main/Fabrice%20Eleviqra.jpeg',
     bio: 'Visionary leader driving innovation and excellence in technology solutions across Africa. With a passion for transformative technology and a deep understanding of African markets, Fabrice leads ThickTek\'s mission to empower businesses through innovative solutions. His leadership has been instrumental in establishing ThickTek as a leading force in African technology innovation, focusing on delivering cutting-edge solutions that address real-world challenges.',
-    linkedin: 'https://www.linkedin.com/in/niyigena-fabrice-09a346181/',
-    twitter: 'https://x.com/FabUmusinga',
+    linkedin: 'https://www.linkedin.com/in/niyigena-frabrice-09a346181/',
+    twitter: 'https://x.com/thicktek',
     achievements: [
       'Pioneer in African Tech Innovation',
       'Digital Transformation Expert',
