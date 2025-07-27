@@ -44,14 +44,14 @@ export default function GlobalFootprint() {
     <section className="py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Our Global Footprint</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Our Global Footprint</h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Based in the heart of Kigali, delivering excellence across Africa
           </p>
         </div>
 
         <div ref={ref} className="space-y-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {stats.map((stat) => {
               const Icon = stat.icon;
               return (
@@ -63,14 +63,14 @@ export default function GlobalFootprint() {
                 >
                   <Card className="relative h-full overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient}`} />
-                    <div className="relative p-6">
-                      <div className="flex items-center space-x-4 mb-4">
+                    <div className="relative p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row items-center sm:space-x-4 mb-4 text-center sm:text-left">
                         <div className="p-3 rounded-full bg-background/60 backdrop-blur-sm">
-                          <Icon className="w-6 h-6 text-primary" />
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                         </div>
-                        <div className="text-2xl font-bold">{stat.value}</div>
+                        <div className="text-xl sm:text-2xl font-bold mt-2 sm:mt-0">{stat.value}</div>
                       </div>
-                      <div className="text-muted-foreground">{stat.label}</div>
+                      <div className="text-sm sm:text-base text-muted-foreground text-center sm:text-left">{stat.label}</div>
                     </div>
                   </Card>
                 </motion.div>

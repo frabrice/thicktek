@@ -87,8 +87,8 @@ export default function ClientStories() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold mb-4">Success Stories</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Success Stories</h2>
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">
               Real transformations, measurable results, and lasting partnerships
             </p>
           </motion.div>
@@ -105,8 +105,8 @@ export default function ClientStories() {
                 transition={{ duration: 0.7, delay: index * 0.2 }}
               >
                 <Card className="relative overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-                    <div className="lg:col-span-2 relative group">
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6">
+                    <div className="lg:col-span-2 relative group order-2 lg:order-1">
                       <div className="aspect-[4/3] lg:aspect-auto lg:h-full relative">
                         <img
                           src={story.image}
@@ -118,44 +118,44 @@ export default function ClientStories() {
                           href={story.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm text-primary hover:text-primary/80 px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 transition-colors group/link"
+                          className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-background/80 backdrop-blur-sm text-primary hover:text-primary/80 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-1 sm:gap-2 transition-colors group/link"
                         >
                           View Project
-                          <ExternalLink className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5" />
+                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover/link:translate-x-0.5" />
                         </a>
                       </div>
-                      <div className="absolute top-4 left-4">
+                      <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
                         <div className="w-12 h-12 rounded-full border-2 border-primary/20 bg-background/80 p-2 flex items-center justify-center">
                           <Icon className="w-6 h-6 text-primary" />
                         </div>
                       </div>
                     </div>
-                    <div className="lg:col-span-3 p-6">
+                    <div className="lg:col-span-3 p-4 sm:p-6 order-1 lg:order-2">
                       <div className="h-full flex flex-col">
                         <div className="mb-4">
-                          <div className="flex items-center justify-between mb-2">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2">
                             <div>
-                              <h3 className="text-xl font-bold">{story.client}</h3>
-                              <p className="text-sm text-primary">{story.industry}</p>
+                              <h3 className="text-lg sm:text-xl font-bold">{story.client}</h3>
+                              <p className="text-xs sm:text-sm text-primary">{story.industry}</p>
                             </div>
-                            <div className="text-right">
-                              <div className="text-sm font-medium">{story.author}</div>
+                            <div className="text-left sm:text-right">
+                              <div className="text-xs sm:text-sm font-medium">{story.author}</div>
                               <div className="text-xs text-muted-foreground">{story.role}</div>
                             </div>
                           </div>
-                          <blockquote className="text-sm text-muted-foreground italic">
+                          <blockquote className="text-xs sm:text-sm text-muted-foreground italic">
                             "{story.quote}"
                           </blockquote>
                         </div>
                         
                         <div className="mt-auto">
-                          <div className="grid grid-cols-3 gap-3">
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                             {story.metrics.map((metric) => (
                               <div
                                 key={metric.label}
                                 className="p-2 rounded-lg bg-primary/5 text-center"
                               >
-                                <div className="text-lg font-bold text-primary">
+                                <div className="text-base sm:text-lg font-bold text-primary">
                                   {metric.value}
                                 </div>
                                 <div className="text-xs text-muted-foreground">

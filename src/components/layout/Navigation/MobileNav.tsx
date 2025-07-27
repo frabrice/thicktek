@@ -23,6 +23,15 @@ export function MobileNav() {
         <SheetTitle className="text-lg font-semibold mb-4">Navigation Menu</SheetTitle>
         <div className="flex flex-col space-y-4 py-4">
           <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `px-2 py-1 text-lg ${isActive ? 'text-primary font-medium' : 'text-muted-foreground'}`
+            }
+            onClick={handleNavigate}
+          >
+            Home
+          </NavLink>
+          <NavLink
             to="/solutions"
             className={({ isActive }) =>
               `px-2 py-1 text-lg ${isActive ? 'text-primary font-medium' : 'text-muted-foreground'}`
@@ -30,6 +39,15 @@ export function MobileNav() {
             onClick={handleNavigate}
           >
             Solutions
+          </NavLink>
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) =>
+              `px-2 py-1 text-lg ${isActive ? 'text-primary font-medium' : 'text-muted-foreground'}`
+            }
+            onClick={handleNavigate}
+          >
+            Our Work
           </NavLink>
           <NavLink
             to="/innovations"

@@ -58,15 +58,15 @@ export default function Solutions() {
     <section id="solutions" className="py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Signature Solutions</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Signature Solutions</h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Cutting-edge solutions designed to transform your business and drive innovation
           </p>
         </div>
 
         <div 
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {solutions.map((solution, index) => {
             const Icon = solution.icon;
@@ -80,15 +80,15 @@ export default function Solutions() {
               >
                 <Card className="relative overflow-hidden group h-full hover:shadow-lg transition-all duration-300">
                   <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-100 group-hover:opacity-80 transition-opacity duration-300`} />
-                  <div className="relative p-6 space-y-4">
+                  <div className="relative p-4 sm:p-6 space-y-3 sm:space-y-4">
                     <div className="inline-flex items-center justify-center p-3 rounded-full bg-background/60 backdrop-blur-sm">
-                      <Icon className="w-6 h-6 text-primary" />
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold">{solution.title}</h3>
-                    <p className="text-muted-foreground">{solution.description}</p>
+                    <h3 className="text-lg sm:text-xl font-semibold">{solution.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">{solution.description}</p>
                     <ul className="space-y-2">
                       {solution.features.map((feature) => (
-                        <li key={feature} className="flex items-center text-sm">
+                        <li key={feature} className="flex items-center text-xs sm:text-sm">
                           <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
                           {feature}
                         </li>

@@ -13,6 +13,7 @@ import { DataDrivenArticle } from '@/components/articles/DataDrivenArticle';
 import { WebsiteArticle } from '@/components/articles/WebsiteArticle';
 import { CustomSoftwareArticle } from '@/components/articles/CustomSoftwareArticle';
 import { MobileAppsArticle } from '@/components/articles/MobileAppsArticle';
+import PortfolioPage from '@/pages/PortfolioPage';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/articles/property-tech" element={<PropertyTechArticle />} />
             <Route path="/articles/data-driven" element={<DataDrivenArticle />} />
             <Route path="/articles/website-design" element={<WebsiteArticle />} />

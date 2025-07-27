@@ -25,6 +25,7 @@ export function FooterLinks() {
       title: "Company",
       links: [
         { label: "About Us", href: "/about" },
+        { label: "Our Work", href: "/portfolio" },
         { label: "Our Team", href: "/about#team" },
         { label: "Careers", href: "/careers" },
         { label: "Publications", href: "/publications" },
@@ -44,16 +45,16 @@ export function FooterLinks() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
       {sections.map((section) => (
         <div key={section.title}>
-          <h3 className="font-semibold mb-3">{section.title}</h3>
-          <ul className="space-y-2">
+          <h3 className="text-sm sm:text-base font-semibold mb-3">{section.title}</h3>
+          <ul className="space-y-1 sm:space-y-2">
             {section.links.map((link) => (
               <li key={link.label}>
                 <Link
                   to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>

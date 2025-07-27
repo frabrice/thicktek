@@ -41,9 +41,9 @@ export default function Publications() {
     <section className="py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-8">
-          <h2 className="text-3xl font-bold">Our Latest Publications</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Our Latest Publications</h2>
         </div>
-        <Card className="p-8 max-w-4xl mx-auto">
+        <Card className="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
           <div className="space-y-6">
             {publications.map((pub, index) => (
               <motion.div
@@ -55,16 +55,16 @@ export default function Publications() {
                 className="group"
               >
                 <Link to={pub.link} className="block">
-                  <div className="flex items-start justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                     <div>
-                      <h4 className="font-medium group-hover:text-primary transition-colors">
+                      <h4 className="text-sm sm:text-base font-medium group-hover:text-primary transition-colors">
                         {pub.title}
                       </h4>
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                         {pub.date} by {pub.author}
                       </p>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity self-start sm:self-auto" />
                   </div>
                 </Link>
                 {index < publications.length - 1 && (

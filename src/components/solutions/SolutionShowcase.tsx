@@ -30,7 +30,7 @@ export function SolutionShowcase() {
   ];
 
   return (
-    <section className="min-h-[90vh] relative flex items-center overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
+    <section className="min-h-[80vh] relative flex items-center overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)]" />
@@ -118,7 +118,7 @@ export function SolutionShowcase() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl font-bold mb-6 tracking-tight leading-tight drop-shadow-lg"
+              className="text-3xl md:text-4xl font-bold mb-6 tracking-tight leading-tight drop-shadow-lg"
             >
               Transform Your{' '}
               <span className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
@@ -131,7 +131,7 @@ export function SolutionShowcase() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-foreground mb-12 max-w-2xl mx-auto font-medium tracking-wide leading-relaxed drop-shadow-md"
+              className="text-base text-foreground mb-12 max-w-2xl mx-auto font-medium tracking-wide leading-relaxed drop-shadow-md"
             >
               From custom software development to cloud solutions, we deliver innovative 
               technology solutions that drive growth and efficiency.

@@ -33,18 +33,18 @@ export default function CorePillars() {
   ];
 
   return (
-    <section className="py-24 bg-secondary/50">
+    <section className="py-12 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Core Pillars of Innovation</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Core Pillars of Innovation</h2>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Our foundational principles that drive technological excellence and business transformation
           </p>
         </div>
 
         <div 
           ref={ref} 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
         >
           {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
@@ -58,12 +58,12 @@ export default function CorePillars() {
               >
                 <Card className="relative overflow-hidden group h-full hover:shadow-lg transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-500/20 opacity-100 group-hover:opacity-80 transition-opacity duration-300" />
-                  <div className="relative p-6 space-y-4">
+                  <div className="relative p-4 sm:p-6 space-y-3 sm:space-y-4">
                     <div className="inline-flex items-center justify-center p-3 rounded-full bg-background/60 backdrop-blur-sm">
-                      <Icon className="w-6 h-6 text-primary" />
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold">{pillar.title}</h3>
-                    <p className="text-muted-foreground">{pillar.description}</p>
+                    <h3 className="text-lg sm:text-xl font-semibold">{pillar.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">{pillar.description}</p>
                   </div>
                 </Card>
               </motion.div>

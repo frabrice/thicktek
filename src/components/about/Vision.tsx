@@ -20,7 +20,7 @@ export function Vision() {
   ];
 
   return (
-    <section className="min-h-[90vh] relative flex items-center overflow-hidden">
+    <section className="min-h-[80vh] relative flex items-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)]" />
         
@@ -47,7 +47,7 @@ export function Vision() {
         />
       </div>
 
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* About Us Content */}
           <motion.div
@@ -68,7 +68,7 @@ export function Vision() {
               </span>
             </motion.div>
             
-            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
+            <h1 className="text-2xl lg:text-4xl font-bold tracking-tight leading-tight">
               Pioneering{' '}
               <div className="relative inline-block">
                 <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
@@ -83,7 +83,7 @@ export function Vision() {
               <br />Technology
             </h1>
             
-            <div className="text-base text-muted-foreground space-y-6 leading-relaxed">
+            <div className="text-sm text-muted-foreground space-y-6 leading-relaxed">
               <p>
                 At ThickTek, we are more than just a technology company. We are innovators, 
                 problem-solvers, and visionaries dedicated to transforming businesses through 
