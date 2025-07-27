@@ -11,14 +11,21 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
 
-function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
+type NavLinkProps = {
+  to: string;
+  children: React.ReactNode;
+  className?: string;
+};
+
+function NavLink({ to, children, className }: NavLinkProps) {
   return (
     <RouterLink
       to={to}
       className={({ isActive }) =>
         cn(
           'text-sm transition-colors hover:text-primary',
-          isActive ? 'text-primary font-medium' : 'text-muted-foreground'
+          isActive ? 'text-primary font-medium' : 'text-muted-foreground',
+          className
         )
       }
     >
@@ -41,7 +48,7 @@ export function Navigation() {
         <div className="flex items-center gap-4">
           <RouterLink to="/" className="flex items-center space-x-2">
             <img 
-             src="/logo.png" 
+              src="/logo.png" 
               alt="ThickTek Logo" 
               className="h-6 sm:h-8 w-auto"
             />
