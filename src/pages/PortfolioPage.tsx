@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, Globe } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -151,8 +151,6 @@ export default function PortfolioPage() {
     },
   ];
 
-  const categories = [...new Set(projects.map(p => p.category))];
-
   return (
     <main className="pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -177,14 +175,11 @@ export default function PortfolioPage() {
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent lg:from-transparent lg:via-background/20 lg:to-background/80" />
-                      
-                      {/* Category Badge */}
                       <div className="absolute top-4 left-4">
                         <div className="px-3 py-1 rounded-full bg-background/90 backdrop-blur-sm text-xs font-medium">
                           {project.category}
                         </div>
                       </div>
-
                     </div>
                   </div>
 
@@ -200,7 +195,6 @@ export default function PortfolioPage() {
                         </p>
                       </div>
 
-                      {/* Tags */}
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <span
@@ -212,7 +206,6 @@ export default function PortfolioPage() {
                         ))}
                       </div>
 
-                      {/* Action */}
                       <div className="pt-1">
                         <Button
                           asChild
