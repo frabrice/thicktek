@@ -606,22 +606,24 @@ Deno.serve(async (req: Request) => {
       });
 
       if (resendKey) {
-        await Promise.all([
-          sendResendEmail(
-            resendKey,
-            data.email,
-            "Your Consultation Request — ThickTek",
-            consultationConfirmationHtml(data),
-            adminEmails[0]
-          ),
-          sendResendEmail(
-            resendKey,
-            adminEmails,
-            `New Consultation: ${data.name} — ${data.service}`,
-            consultationNotificationHtml(data),
-            data.email
-          ),
-        ]);
+        EdgeRuntime.waitUntil(
+          Promise.all([
+            sendResendEmail(
+              resendKey,
+              data.email,
+              "Your Consultation Request — ThickTek",
+              consultationConfirmationHtml(data),
+              adminEmails[0]
+            ),
+            sendResendEmail(
+              resendKey,
+              adminEmails,
+              `New Consultation: ${data.name} — ${data.service}`,
+              consultationNotificationHtml(data),
+              data.email
+            ),
+          ]).catch(console.error)
+        );
       }
 
       return new Response(JSON.stringify({ success: true }), {
@@ -641,22 +643,24 @@ Deno.serve(async (req: Request) => {
       });
 
       if (resendKey) {
-        await Promise.all([
-          sendResendEmail(
-            resendKey,
-            data.email,
-            "We received your message — ThickTek",
-            contactConfirmationHtml(data),
-            adminEmails[0]
-          ),
-          sendResendEmail(
-            resendKey,
-            adminEmails,
-            `New Contact: ${data.first_name} ${data.last_name}`,
-            `<p>Name: ${data.first_name} ${data.last_name}</p><p>Email: ${data.email}</p><p>Company: ${data.company}</p><p>Message: ${data.message}</p>`,
-            data.email
-          ),
-        ]);
+        EdgeRuntime.waitUntil(
+          Promise.all([
+            sendResendEmail(
+              resendKey,
+              data.email,
+              "We received your message — ThickTek",
+              contactConfirmationHtml(data),
+              adminEmails[0]
+            ),
+            sendResendEmail(
+              resendKey,
+              adminEmails,
+              `New Contact: ${data.first_name} ${data.last_name}`,
+              `<p>Name: ${data.first_name} ${data.last_name}</p><p>Email: ${data.email}</p><p>Company: ${data.company}</p><p>Message: ${data.message}</p>`,
+              data.email
+            ),
+          ]).catch(console.error)
+        );
       }
 
       return new Response(JSON.stringify({ success: true }), {
@@ -676,22 +680,24 @@ Deno.serve(async (req: Request) => {
       });
 
       if (resendKey) {
-        await Promise.all([
-          sendResendEmail(
-            resendKey,
-            data.email,
-            "Your Website Audit Request — ThickTek",
-            auditConfirmationHtml(data),
-            adminEmails[0]
-          ),
-          sendResendEmail(
-            resendKey,
-            adminEmails,
-            `New Audit Request: ${data.name} — ${data.website_url}`,
-            auditNotificationHtml(data),
-            data.email
-          ),
-        ]);
+        EdgeRuntime.waitUntil(
+          Promise.all([
+            sendResendEmail(
+              resendKey,
+              data.email,
+              "Your Website Audit Request — ThickTek",
+              auditConfirmationHtml(data),
+              adminEmails[0]
+            ),
+            sendResendEmail(
+              resendKey,
+              adminEmails,
+              `New Audit Request: ${data.name} — ${data.website_url}`,
+              auditNotificationHtml(data),
+              data.email
+            ),
+          ]).catch(console.error)
+        );
       }
 
       return new Response(JSON.stringify({ success: true }), {

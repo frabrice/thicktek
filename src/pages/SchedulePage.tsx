@@ -51,20 +51,6 @@ export default function SchedulePage() {
         description: formData.description,
       },
     });
-
-    setFormData({
-      date: '',
-      time: '',
-      service: '',
-      description: '',
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      position: '',
-    });
-
-    setCurrentStep(0);
   };
 
   return (
