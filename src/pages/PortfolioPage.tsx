@@ -106,7 +106,7 @@ export default function PortfolioPage() {
             <h2 className="text-2xl font-bold mb-1">Selected Work</h2>
             <p className="text-muted-foreground text-sm">Additional projects that demonstrate range and depth</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {selectedWork.map((work, i) => (
               <SelectedWorkCard key={work.name} work={work} index={i} />
             ))}

@@ -220,6 +220,24 @@ export const selectedWork: SelectedWork[] = [
     url: 'https://www.witosupport.com/',
     tags: ['Customer Support', 'Outsourcing', 'Global'],
   },
+  {
+    name: 'Hello Fraser Valley',
+    description: 'A social enterprise website showcasing local businesses, arts, events, and community talent.',
+    category: 'Social Enterprise',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    url: 'https://hellofraservalley.com/',
+    tags: ['Community', 'Social Enterprise', 'Canada'],
+  },
+  {
+    name: 'Abana Wellness',
+    description: 'NGO website communicating mission, programs, and community impact with clarity and purpose.',
+    category: 'NGO & Social Impact',
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80',
+    url: 'https://abanawellness.org/',
+    tags: ['NGO', 'Wellness', 'Community'],
+  },
 ];
 
 export interface MiniProject {

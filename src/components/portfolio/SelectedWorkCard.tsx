@@ -16,7 +16,7 @@ export function SelectedWorkCard({ work, index }: Props) {
       viewport={{ once: true }}
       className="group rounded-xl border border-border bg-card overflow-hidden hover:border-border/80 transition-all duration-300"
     >
-      <div className="aspect-[16/10] relative overflow-hidden">
+      <div className="aspect-[4/3] relative overflow-hidden">
         <img
           src={work.image}
           alt={work.name}
