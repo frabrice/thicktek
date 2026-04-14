@@ -12,7 +12,7 @@ export function MobileAppsArticle() {
 
   return (
     <main className="pt-24 pb-16">
-      <article className="container mx-auto px-4">
+      <article className="container">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

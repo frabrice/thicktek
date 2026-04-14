@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Rocket, Globe2 } from 'lucide-react';
+import { MapPin, Users, Rocket, Globe as Globe2 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 export default function GlobalFootprint() {
@@ -42,7 +42,7 @@ export default function GlobalFootprint() {
 
   return (
     <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Our Global Footprint</h2>
           <p className="text-sm sm:text-base text-muted-foreground">

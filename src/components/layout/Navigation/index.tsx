@@ -1,6 +1,7 @@
-import { NavLink as RouterLink } from 'react-router-dom';
+import { NavLink as RouterLink, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { CompanyDropdown } from './CompanyDropdown';
+import { MobileNav } from './MobileNav';
 import { cn } from '@/lib/utils';
 
 function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
@@ -9,8 +10,10 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
       to={to}
       className={({ isActive }) =>
         cn(
-          'text-sm transition-colors hover:text-primary',
-          isActive ? 'text-primary font-medium' : 'text-muted-foreground'
+          'text-sm transition-colors duration-150',
+          isActive
+            ? 'text-foreground font-medium'
+            : 'text-muted-foreground hover:text-foreground'
         )
       }
     >
@@ -20,25 +23,34 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
 }
 
 export function Navigation() {
+  const navigate = useNavigate();
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b">
-      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-        <RouterLink to="/" className="flex items-center space-x-2">
-          <img 
-           src="/logo.png" 
-            alt="ThickTek Logo" 
-            className="h-8 w-auto"
+    <nav className="fixed top-0 w-full z-50 bg-background border-b border-border/60">
+      <div className="container flex items-center justify-between" style={{ height: '52px' }}>
+        <RouterLink to="/" className="flex items-center space-x-2.5">
+          <img
+            src="/logo.png"
+            alt="ThickTek Logo"
+            className="h-7 w-auto"
           />
-          <span className="font-bold text-xl">ThickTek</span>
+          <span className="font-semibold text-base tracking-tight text-foreground">ThickTek</span>
         </RouterLink>
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
+          <NavLink to="/how-it-works">How It Works</NavLink>
           <NavLink to="/solutions">Solutions</NavLink>
-          <NavLink to="/innovations">Innovations</NavLink>
+          <NavLink to="/case-studies">Case Studies</NavLink>
+          <NavLink to="/audit">Audit</NavLink>
           <CompanyDropdown />
-          <RouterLink to="/contact">
-            <Button>Get Started</Button>
-          </RouterLink>
+          <Button
+            size="sm"
+            className="h-8 px-4 text-xs font-medium bg-primary hover:bg-primary/90 text-primary-foreground"
+            onClick={() => { window.scrollTo(0, 0); navigate('/schedule'); }}
+          >
+            Schedule Call
+          </Button>
         </div>
+        <MobileNav />
       </div>
     </nav>
   );

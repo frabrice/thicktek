@@ -1,211 +1,254 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Search, Terminal, CircleCheck as CheckCircle, Circle as XCircle, CircleAlert as AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+
+const auditLines = [
+  { type: 'info', label: 'SCAN', text: 'yourwebsite.com — analyzing...' },
+  { type: 'fail', label: 'FAIL', text: 'No CTA above the fold' },
+  { type: 'fail', label: 'FAIL', text: 'Load time: 6.2s (threshold: 2.5s)' },
+  { type: 'warn', label: 'WARN', text: 'Contact form: no value proposition' },
+  { type: 'fail', label: 'FAIL', text: 'Mobile layout broken on /services' },
+  { type: 'warn', label: 'WARN', text: 'No conversion tracking installed' },
+  { type: 'pass', label: 'PASS', text: 'SSL certificate valid' },
+  { type: 'info', label: 'DONE', text: '5 critical issues found' },
+];
+
+const typeStyles: Record<string, { color: string; icon: typeof CheckCircle }> = {
+  fail: { color: 'text-red-400', icon: XCircle },
+  warn: { color: 'text-amber-400', icon: AlertCircle },
+  pass: { color: 'text-emerald-400', icon: CheckCircle },
+  info: { color: 'text-blue-400', icon: Terminal },
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+};
 
 export default function HeroSection() {
   const navigate = useNavigate();
 
-  const handleSchedule = () => {
-    window.scrollTo(0, 0);
-    navigate('/schedule');
-  };
-
-  const handleLearnMore = () => {
-    window.scrollTo(0, 0);
-    navigate('/about');
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black px-4 sm:px-6 lg:px-8">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.2)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_48%,rgba(59,130,246,0.05)_49%,rgba(59,130,246,0.05)_51%,transparent_52%)] bg-[length:20px_20px]" />
+    <section className="min-h-screen flex items-center relative overflow-hidden pt-[52px]">
+      {/* Background layers */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(215 15% 50% / 0.04) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
+          }}
+        />
+        {/* Horizontal rule across top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        {/* Ambient glow right */}
+        <div
+          className="absolute right-0 top-1/4 w-[600px] h-[600px] rounded-full opacity-[0.06]"
+          style={{ background: 'radial-gradient(circle, hsl(213, 94%, 58%) 0%, transparent 70%)' }}
+        />
+        {/* Faint scan-line effect */}
+        <div
+          className="absolute inset-0 opacity-[0.015]"
+          style={{
+            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(213 94% 58%) 2px, hsl(213 94% 58%) 3px)`,
+            backgroundSize: '100% 60px',
+          }}
+        />
       </div>
 
-      <div className="container mx-auto py-8 sm:py-12 lg:py-16 relative z-10 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
+      <div className="container py-8 lg:py-10 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-14 lg:gap-20 items-center max-w-6xl mx-auto">
+
+          {/* Left — copy */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white text-center lg:text-left"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-6"
-            >
-              <div className="inline-flex items-center justify-center px-2.5 py-1 rounded-full border border-blue-400/40 bg-blue-400/10 backdrop-blur-sm">
-                <span className="text-blue-400 text-xs font-bold tracking-wider uppercase">
-                  INTRODUCING
+            <motion.div variants={itemVariants} className="mb-8">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/[0.07]">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span
+                  className="text-emerald-400 text-xs tracking-widest uppercase"
+                  style={{ fontFamily: 'var(--font-mono)' }}
+                >
+                  Accepting new projects
                 </span>
               </div>
             </motion.div>
-            
+
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+              variants={itemVariants}
+              className="text-[2.75rem] sm:text-[3.5rem] leading-[1.05] mb-5 text-foreground"
+              style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.03em', fontWeight: 700 }}
             >
-              Thick<span className="text-blue-400">Tek</span>
+              Great businesses<br />
+              don't just compete —<br />
+              <span className="text-primary">they operate on a different level.</span>
             </motion.h1>
-            
+
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-gray-300 text-sm sm:text-base lg:text-lg mb-8 leading-relaxed max-w-md mx-auto lg:mx-0"
+              variants={itemVariants}
+              className="text-muted-foreground text-base leading-relaxed mb-8 max-w-md"
             >
-              Transforming industries through cutting-edge solutions and innovative technologies. 
-              We're not just adapting to the future—we're creating it.
+              We build digital infrastructure and business systems designed to generate leads,
+              manage operations, and scale with you — engineered for outcomes, not aesthetics.
             </motion.p>
-            
+
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8"
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-3 mb-12"
             >
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                <Button 
-                  size="lg" 
-                  className="bg-blue-500 hover:bg-blue-600 text-white border-0 px-6 sm:px-8 py-3 rounded-lg group transition-all duration-300 hover:scale-105 w-full sm:w-auto text-sm sm:text-base"
-                  onClick={handleSchedule}
-                >
-                  Build With Us
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-gray-400 text-gray-300 hover:text-white hover:border-white bg-transparent px-6 sm:px-8 py-3 rounded-full transition-all duration-300 hover:bg-gray-800 w-full sm:w-auto text-sm sm:text-base"
-                  onClick={handleLearnMore}
-                >
-                  Learn More
-                </Button>
-              </div>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-7 h-11 text-sm font-semibold tracking-tight"
+                onClick={() => { window.scrollTo(0, 0); navigate('/audit'); }}
+              >
+                <Search className="w-4 h-4 mr-2" />
+                Request a Free Audit
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground border border-border/70 hover:border-border px-7 h-11 text-sm group"
+                onClick={() => { window.scrollTo(0, 0); navigate('/schedule'); }}
+              >
+                Book a Strategy Call
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 duration-200" />
+              </Button>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex items-center justify-center lg:justify-start space-x-4"
+              variants={itemVariants}
+              className="flex items-center gap-8"
             >
-              <a href="https://www.linkedin.com/in/niyigena-frabrice-09a346181/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-blue-700/50 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a href="https://x.com/thicktek" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-700/50 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-colors">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/thicktek?igsh=Zm1pc2NpNjlsMWRw" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-700/50 hover:bg-gray-600 rounded-lg flex items-center justify-center transition-colors">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
+              {[
+                { value: '30+', label: 'systems shipped' },
+                { value: '5+', label: 'countries' },
+                { value: '98%', label: 'satisfaction' },
+              ].map((stat, i) => (
+                <div key={stat.value}>
+                  <div
+                    className="text-xl font-bold text-foreground"
+                    style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.03em' }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{stat.label}</div>
+                  {i < 2 && <div className="absolute" />}
+                </div>
+              ))}
+              <div className="h-8 w-px bg-border/60 hidden sm:block" />
             </motion.div>
           </motion.div>
 
-          {/* Right Content - AI Visualization */}
+          {/* Right — terminal card */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center mt-8 lg:mt-0"
+            transition={{ delay: 0.25, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block"
           >
-            {/* Main AI Head Visualization */}
-            <div className="relative w-64 sm:w-80 h-64 sm:h-80">
-              {/* Outer Glow */}
-              <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
-              
-              {/* Main Circle */}
-              <div className="absolute inset-8 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full border border-blue-400/40 backdrop-blur-sm">
-                {/* Inner Circles */}
-                <div className="absolute inset-4 bg-gradient-to-br from-blue-300/15 to-blue-500/15 rounded-full border border-blue-300/25">
-                  <div className="absolute inset-6 bg-gradient-to-br from-blue-200/15 to-blue-400/15 rounded-full border border-blue-200/25">
-                    {/* Center Core */}
-                    <div className="absolute inset-8 bg-blue-400/30 rounded-full flex items-center justify-center">
-                      <div className="w-6 sm:w-8 h-6 sm:h-8 bg-blue-400 rounded-full animate-pulse" />
-                    </div>
-                  </div>
+            <div
+              className="rounded-xl overflow-hidden shadow-2xl shadow-black/50"
+              style={{
+                border: '1px solid hsl(216 14% 14%)',
+                background: 'hsl(216 28% 5%)',
+              }}
+            >
+              {/* Terminal titlebar */}
+              <div
+                className="flex items-center gap-2 px-4 py-3"
+                style={{ borderBottom: '1px solid hsl(216 14% 10%)', background: 'hsl(216 28% 4%)' }}
+              >
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full" style={{ background: 'hsl(0 72% 51% / 0.5)' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ background: 'hsl(38 92% 50% / 0.5)' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ background: 'hsl(142 70% 45% / 0.5)' }} />
+                </div>
+                <div className="flex-1 text-center">
+                  <span
+                    className="text-xs text-muted-foreground/50"
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    example-website — site-audit
+                  </span>
                 </div>
               </div>
 
-              {/* Floating Particles */}
-              {[...Array(8)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full"
-                  style={{
-                    top: `${20 + Math.sin(i * 45 * Math.PI / 180) * (window.innerWidth < 640 ? 90 : 120)}px`,
-                    left: `${20 + Math.cos(i * 45 * Math.PI / 180) * (window.innerWidth < 640 ? 90 : 120)}px`,
-                  }}
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.5, 1, 0.5],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                  }}
-                />
-              ))}
+              {/* Terminal body */}
+              <div className="p-5 space-y-2.5" style={{ fontFamily: 'var(--font-mono)', background: 'hsl(216 28% 3.5%)' }}>
+                <div className="text-xs text-muted-foreground/40 mb-3.5">
+                  <span className="text-emerald-500/60">~</span> $ thicktek audit --url yourwebsite.com
+                </div>
 
-              {/* Connection Lines */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 320 320">
-                {[...Array(6)].map((_, i) => (
-                  <motion.line
-                    key={i}
-                    x1="160"
-                    y1="160"
-                    x2={160 + Math.cos(i * 60 * Math.PI / 180) * 100}
-                    y2={160 + Math.sin(i * 60 * Math.PI / 180) * 100}
-                    stroke="rgba(59, 130, 246, 0.4)"
-                    strokeWidth="1"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                      delay: i * 0.3,
-                    }}
-                  />
-                ))}
-              </svg>
+                {auditLines.map((line, i) => {
+                  const style = typeStyles[line.type];
+                  const Icon = style.icon;
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 + i * 0.13, duration: 0.35, ease: 'easeOut' }}
+                      className="flex items-start gap-2.5"
+                    >
+                      <Icon className={`w-3.5 h-3.5 flex-shrink-0 mt-px ${style.color}`} />
+                      <span className={`text-xs font-semibold ${style.color} w-9 flex-shrink-0`}>{line.label}</span>
+                      <span className="text-xs text-muted-foreground/65 leading-relaxed">{line.text}</span>
+                    </motion.div>
+                  );
+                })}
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.9, duration: 0.5 }}
+                  className="pt-3.5 mt-1"
+                  style={{ borderTop: '1px solid hsl(216 14% 9%)' }}
+                >
+                  <span className="text-xs text-muted-foreground/40">Full report delivered in 48h. </span>
+                  <button
+                    className="text-xs text-primary hover:underline underline-offset-2 transition-colors"
+                    onClick={() => { window.scrollTo(0, 0); navigate('/audit'); }}
+                  >
+                    Request yours →
+                  </button>
+                </motion.div>
+              </div>
             </div>
 
-            {/* Floating Elements */}
-            <motion.div
-              className="absolute top-16 sm:top-20 right-16 sm:right-20"
-              initial={{ y: 0 }}
-              animate={{ y: [-10, 10, -10] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1,
-              }}
-            >
-              <div className="w-3 sm:w-4 h-3 sm:h-4 bg-blue-400 rounded-full opacity-80" />
-            </motion.div>
+            {/* Stat chips below terminal */}
+            <div className="mt-3 grid grid-cols-3 gap-2.5">
+              {[
+                { label: 'Rwanda · Africa · World', sub: 'Global reach' },
+                { label: 'Full-stack', sub: 'End-to-end delivery' },
+                { label: '48hr turnaround', sub: 'Fast & precise' },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-lg px-3 py-2.5 text-center"
+                  style={{ border: '1px solid hsl(216 14% 10%)', background: 'hsl(216 24% 6%)' }}
+                >
+                  <div className="text-xs font-medium text-foreground/70 leading-tight">{item.label}</div>
+                  <div className="text-xs text-muted-foreground/50 mt-0.5">{item.sub}</div>
+                </div>
+              ))}
+            </div>
           </motion.div>
+
         </div>
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 }

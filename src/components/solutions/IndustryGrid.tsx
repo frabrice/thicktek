@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Building2, Activity, HomeIcon, Building, Briefcase, GraduationCap } from 'lucide-react';
+import { Building2, Activity, Home as HomeIcon, Building, Briefcase, GraduationCap } from 'lucide-react';
 
 export function IndustryGrid() {
   const industries = [
@@ -44,7 +44,7 @@ export function IndustryGrid() {
 
   return (
     <section className="py-24">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Industries We Serve</h2>
           <p className="text-muted-foreground">

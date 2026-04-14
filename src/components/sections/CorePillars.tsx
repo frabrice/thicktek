@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { Shield, Lightbulb, Rocket, Globe2 } from 'lucide-react';
+import { Shield, Lightbulb, Rocket, Globe as Globe2 } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 
@@ -34,7 +34,7 @@ export default function CorePillars() {
 
   return (
     <section className="py-12 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Core Pillars of Innovation</h2>
           <p className="text-sm sm:text-base text-muted-foreground">

@@ -11,7 +11,7 @@ export default function Research() {
 
   return (
     <section id="research" className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Research & Innovation</h2>
           <p className="text-muted-foreground">

@@ -4,7 +4,7 @@ import { Users } from 'lucide-react';
 export function CareerHero() {
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

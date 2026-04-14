@@ -7,7 +7,7 @@ import { TechnologyStack } from '@/components/solutions/TechnologyStack';
 
 export default function SolutionsPage() {
   return (
-    <main className="pt-10">
+    <main className="pt-[52px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

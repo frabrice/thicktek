@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, FileText, User, CheckCircle } from 'lucide-react';
+import { Calendar, FileText, User, CircleCheck as CheckCircle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { ConsultationCalendar } from '@/components/schedule/ConsultationCalendar';
 import { ServiceDetails } from '@/components/schedule/ServiceDetails';
 import { ContactInfo } from '@/components/schedule/ContactInfo';
 import { ReviewSubmit } from '@/components/schedule/ReviewSubmit';
-import emailjs from '@emailjs/browser';
+import { sendEmail } from '@/lib/supabase';
 
 const steps = [
   { icon: Calendar, label: 'Choose Date & Time' },
@@ -37,58 +37,39 @@ export default function SchedulePage() {
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 0));
 
   const handleSubmit = async () => {
-    try {
-      await emailjs.send(
-        'service_p9eibmi',
-        'template_n2p0d6q',
-        {
-          to_name: formData.name,
-          from_name: 'ThickTek',
-          message: `
-            Consultation Request Details:
-            
-            Date: ${formData.date}
-            Time: ${formData.time}
-            Service: ${formData.service}
-            Description: ${formData.description}
-            
-            Contact Information:
-            Name: ${formData.name}
-            Email: ${formData.email}
-            Phone: ${formData.phone}
-            Company: ${formData.company}
-            Position: ${formData.position}
-          `,
-          reply_to: formData.email,
-        },
-        'QTH1Z82gB67kDJwq2'
-      );
+    await sendEmail({
+      type: 'consultation',
+      data: {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        position: formData.position,
+        preferred_date: formData.date,
+        preferred_time: formData.time,
+        service: formData.service,
+        description: formData.description,
+      },
+    });
 
-      // Reset form after successful submission
-      setFormData({
-        date: '',
-        time: '',
-        service: '',
-        description: '',
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        position: '',
-      });
-      
-      setCurrentStep(0);
-      
-      alert('Your consultation request has been sent successfully!');
-    } catch (error) {
-      console.error('Failed to send email:', error);
-      alert('Failed to send your request. Please try again later.');
-    }
+    setFormData({
+      date: '',
+      time: '',
+      service: '',
+      description: '',
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      position: '',
+    });
+
+    setCurrentStep(0);
   };
 
   return (
-    <main className="pt-24 pb-16 min-h-screen">
-      <div className="container mx-auto px-4">
+    <main className="pt-[52px] pb-16 min-h-screen">
+      <div className="container py-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-4">Schedule a Consultation</h1>
@@ -97,7 +78,6 @@ export default function SchedulePage() {
             </p>
           </div>
 
-          {/* Progress Steps */}
           <div className="mb-8">
             <div className="flex justify-between relative">
               <div className="absolute top-1/2 left-0 right-0 h-px bg-border -translate-y-1/2" />
@@ -130,7 +110,6 @@ export default function SchedulePage() {
             </div>
           </div>
 
-          {/* Form Steps */}
           <Card className="p-6">
             <AnimatePresence mode="wait">
               <motion.div

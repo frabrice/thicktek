@@ -21,7 +21,7 @@ export function Leadership() {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       
-      <div className="container mx-auto px-4 relative">
+      <div className="container relative">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

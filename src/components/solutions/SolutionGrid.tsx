@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Code2, Cloud, Database, Shield, Smartphone, BarChart } from 'lucide-react';
+import { ArrowRight, Code as Code2, Cloud, Database, Shield, Smartphone, BarChart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export function SolutionGrid() {
@@ -89,7 +89,7 @@ export function SolutionGrid() {
 
   return (
     <section id="solutions" className="py-12">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Our Solutions</h2>
           <p className="text-muted-foreground">

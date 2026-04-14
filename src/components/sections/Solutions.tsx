@@ -1,105 +1,148 @@
-import { useInView } from 'react-intersection-observer';
-import { Card } from '@/components/ui/card';
-import { Cloud, Database, Lock, Network, Cpu, BarChart } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { ArrowRight, Globe, Settings, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+
+const solutions = [
+  {
+    num: "01",
+    icon: Globe,
+    label: "Website Transformation",
+    problem: "Your website exists but does not convert. Visitors leave without acting.",
+    solution: "We rebuild your web presence as a structured conversion system with clear messaging, strong calls-to-action, and tracked user flows.",
+    outcome: "More inquiries, more qualified leads, measurable ROI from every visit.",
+    accent: "blue",
+  },
+  {
+    num: "02",
+    icon: Settings,
+    label: "Business Systems",
+    problem: "Your operations run on spreadsheets, WhatsApp, and manual processes.",
+    solution: "We build the digital backbone of your business — booking systems, CRMs, dashboards, and automation — designed around how you actually work.",
+    outcome: "Fewer errors, faster operations, a business that scales without adding headcount.",
+    accent: "emerald",
+  },
+  {
+    num: "03",
+    icon: TrendingUp,
+    label: "Growth Optimization",
+    problem: "You have traffic and tools, but no clear picture of what is working.",
+    solution: "We set up analytics, conversion tracking, and continuous improvement cycles so every decision is grounded in real data.",
+    outcome: "Month-over-month improvement in conversion, engagement, and revenue.",
+    accent: "amber",
+  },
+];
+
+const accentMap: Record<string, { border: string; bg: string; icon: string; num: string; tag: string }> = {
+  blue: {
+    border: "border-blue-500/15 hover:border-blue-500/30",
+    bg: "bg-blue-500/[0.04]",
+    icon: "text-blue-400 bg-blue-500/10",
+    num: "text-blue-500/30",
+    tag: "text-blue-400",
+  },
+  emerald: {
+    border: "border-emerald-500/15 hover:border-emerald-500/30",
+    bg: "bg-emerald-500/[0.04]",
+    icon: "text-emerald-400 bg-emerald-500/10",
+    num: "text-emerald-500/30",
+    tag: "text-emerald-400",
+  },
+  amber: {
+    border: "border-amber-500/15 hover:border-amber-500/30",
+    bg: "bg-amber-500/[0.04]",
+    icon: "text-amber-400 bg-amber-500/10",
+    num: "text-amber-500/30",
+    tag: "text-amber-400",
+  },
+};
 
 export default function Solutions() {
-  const { ref } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const solutions = [
-    {
-      icon: Cloud,
-      title: "Cloud Transformation",
-      description: "Modernize your infrastructure with our cloud-native solutions",
-      features: ["Hybrid Cloud", "Multi-Cloud", "Cloud Security"],
-      gradient: "from-blue-500/20 via-sky-500/20 to-cyan-500/20",
-    },
-    {
-      icon: Database,
-      title: "Data Engineering",
-      description: "Transform raw data into actionable business intelligence",
-      features: ["Big Data", "Data Lakes", "Real-time Analytics"],
-      gradient: "from-emerald-500/20 via-green-500/20 to-teal-500/20",
-    },
-    {
-      icon: Lock,
-      title: "Cybersecurity",
-      description: "Enterprise-grade security for the digital age",
-      features: ["Zero Trust", "Threat Detection", "Compliance"],
-      gradient: "from-violet-500/20 via-purple-500/20 to-fuchsia-500/20",
-    },
-    {
-      icon: Network,
-      title: "Digital Infrastructure",
-      description: "Build resilient and scalable digital foundations",
-      features: ["Edge Computing", "5G Solutions", "IoT Platform"],
-      gradient: "from-orange-500/20 via-amber-500/20 to-yellow-500/20",
-    },
-    {
-      icon: Cpu,
-      title: "AI Solutions",
-      description: "Intelligent systems that learn and adapt",
-      features: ["Machine Learning", "NLP", "Computer Vision"],
-      gradient: "from-rose-500/20 via-pink-500/20 to-red-500/20",
-    },
-    {
-      icon: BarChart,
-      title: "Analytics Platform",
-      description: "Deep insights for data-driven decisions",
-      features: ["Predictive Analytics", "BI Tools", "Custom Dashboards"],
-      gradient: "from-indigo-500/20 via-blue-500/20 to-violet-500/20",
-    },
-  ];
+  const navigate = useNavigate();
 
   return (
-    <section id="solutions" className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Signature Solutions</h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            Cutting-edge solutions designed to transform your business and drive innovation
-          </p>
-        </div>
-
-        <div 
-          ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+    <section id="solutions" className="py-24 border-t border-border/40">
+      <div className="container max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12"
         >
-          {solutions.map((solution, index) => {
-            const Icon = solution.icon;
+          <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// What We Build</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
+            Three ways we transform<br />
+            how your business operates online.
+          </h2>
+          <p className="text-muted-foreground text-base max-w-xl leading-relaxed">
+            Every engagement is scoped around one of these capabilities. Often, all three.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+          {solutions.map((s, i) => {
+            const Icon = s.icon;
+            const c = accentMap[s.accent];
             return (
               <motion.div
-                key={solution.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={s.label}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.45, delay: i * 0.1 }}
                 viewport={{ once: true }}
+                className={`rounded-lg border ${c.border} ${c.bg} p-5 flex flex-col relative overflow-hidden transition-colors duration-200`}
               >
-                <Card className="relative overflow-hidden group h-full hover:shadow-lg transition-all duration-300">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-100 group-hover:opacity-80 transition-opacity duration-300`} />
-                  <div className="relative p-4 sm:p-6 space-y-3 sm:space-y-4">
-                    <div className="inline-flex items-center justify-center p-3 rounded-full bg-background/60 backdrop-blur-sm">
-                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold">{solution.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{solution.description}</p>
-                    <ul className="space-y-2">
-                      {solution.features.map((feature) => (
-                        <li key={feature} className="flex items-center text-xs sm:text-sm">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                <div className={`absolute top-4 right-4 text-2xl font-bold font-mono ${c.num} leading-none`}>{s.num}</div>
+
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-4 ${c.icon}`}>
+                  <Icon className="w-4 h-4" />
+                </div>
+                <p className={`text-xs font-semibold tracking-widest uppercase mb-3 ${c.tag}`}>{s.label}</p>
+
+                <div className="space-y-3.5 flex-1">
+                  <div>
+                    <p className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider mb-1.5 font-mono">problem</p>
+                    <p className="text-xs text-muted-foreground/70 leading-relaxed">{s.problem}</p>
                   </div>
-                </Card>
+                  <div>
+                    <p className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider mb-1.5 font-mono">solution</p>
+                    <p className="text-xs text-muted-foreground/70 leading-relaxed">{s.solution}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider mb-1.5 font-mono">outcome</p>
+                    <p className="text-xs text-foreground/80 font-medium leading-relaxed">{s.outcome}</p>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row gap-3"
+        >
+          <Button
+            size="sm"
+            className="h-9 text-xs bg-primary hover:bg-primary/90 text-primary-foreground"
+            onClick={() => { window.scrollTo(0, 0); navigate("/solutions"); }}
+          >
+            Explore All Solutions
+            <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            className="h-9 text-xs border border-border hover:border-border/80 text-muted-foreground hover:text-foreground"
+            onClick={() => { window.scrollTo(0, 0); navigate("/case-studies"); }}
+          >
+            See Case Studies
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

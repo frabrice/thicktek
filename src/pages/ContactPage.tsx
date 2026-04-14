@@ -4,7 +4,7 @@ import { ContactCards } from '@/components/contact/ContactCards';
 
 export default function ContactPage() {
   return (
-    <main className="pt-14">
+    <main className="pt-[52px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

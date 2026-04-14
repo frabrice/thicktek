@@ -7,7 +7,7 @@ export function ContactInfo() {
       icon: Mail,
       title: 'Email Us',
       description: 'Our team will respond within 24 hours',
-      value: 'contact@thicktek.com',
+      value: 'admin@thicktek.com',
     },
     {
       icon: Phone,

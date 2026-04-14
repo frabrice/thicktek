@@ -6,7 +6,7 @@ import { Timeline } from '@/components/about/Timeline';
 
 export default function AboutPage() {
   return (
-    <main className="pt-14">
+    <main className="pt-[52px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

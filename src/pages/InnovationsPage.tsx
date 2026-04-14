@@ -5,7 +5,7 @@ import { InnovationShowcase } from '@/components/innovations/InnovationShowcase'
 
 export default function InnovationsPage() {
   return (
-    <main className="pt-14">
+    <main className="pt-[52px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

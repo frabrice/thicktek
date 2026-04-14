@@ -33,7 +33,7 @@ export default function Sustainability() {
 
   return (
     <section className="py-24 w-full bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl font-bold">Long Term Goals</h2>
         </div>

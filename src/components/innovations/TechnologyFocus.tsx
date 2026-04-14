@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Code2, Cloud, Database, Shield } from 'lucide-react';
+import { Code as Code2, Cloud, Database, Shield } from 'lucide-react';
 
 export function TechnologyFocus() {
   const areas = [
@@ -48,7 +48,7 @@ export function TechnologyFocus() {
 
   return (
     <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Technology Focus Areas</h2>
           <p className="text-muted-foreground">

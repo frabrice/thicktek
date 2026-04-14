@@ -12,30 +12,30 @@ export function CompanyDropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div 
+    <div
       className="relative"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
       <button
-        className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+        className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground transition-colors duration-150"
       >
         <span>Company</span>
-        <ChevronDown className="w-4 h-4" />
+        <ChevronDown className="w-3.5 h-3.5" />
       </button>
 
       {isOpen && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-          <div className="bg-popover rounded-md shadow-lg ring-1 ring-black ring-opacity-5 p-1 min-w-[180px]">
+          <div className="bg-card border border-border rounded-md shadow-xl p-1 min-w-[160px]">
             {companyLinks.map((link) => (
               <NavLink
                 key={link.href}
                 to={link.href}
                 className={({ isActive }) =>
-                  `block px-4 py-2 text-sm rounded-sm ${
+                  `block px-3 py-2 text-sm rounded-sm transition-colors ${
                     isActive
                       ? 'bg-primary/10 text-primary'
-                      : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                   }`
                 }
               >

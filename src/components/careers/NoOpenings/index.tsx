@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, AlertCircle } from 'lucide-react';
+import { Mail, CircleAlert as AlertCircle } from 'lucide-react';
 
 export function NoOpenings() {
   return (
     <section className="py-24 bg-secondary/50">
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div className="max-w-3xl mx-auto">
           <Card className="p-8 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5" />

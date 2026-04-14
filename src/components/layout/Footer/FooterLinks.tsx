@@ -11,35 +11,31 @@ interface FooterSection {
 export function FooterLinks() {
   const sections: FooterSection[] = [
     {
-      title: "Solutions",
+      title: "Services",
       links: [
-        { label: "Cloud Services", href: "/solutions#cloud" },
-        { label: "AI & Machine Learning", href: "/solutions#ai" },
-        { label: "Web & Mobile Apps", href: "/solutions#apps" },
-        { label: "Digital Infrastructure", href: "/solutions#infrastructure" },
-        { label: "Data Analytics", href: "/solutions#analytics" },
-        { label: "Cybersecurity", href: "/solutions#security" },
+        { label: "How It Works", href: "/how-it-works" },
+        { label: "Solutions", href: "/solutions" },
+        { label: "Case Studies", href: "/case-studies" },
+        { label: "Website Audit", href: "/audit" },
+        { label: "Schedule Consultation", href: "/schedule" },
       ],
     },
     {
       title: "Company",
       links: [
         { label: "About Us", href: "/about" },
-        { label: "Our Work", href: "/portfolio" },
-        { label: "Our Team", href: "/about#team" },
         { label: "Careers", href: "/careers" },
-        { label: "Publications", href: "/publications" },
         { label: "Contact", href: "/contact" },
       ],
     },
     {
-      title: "Legal",
+      title: "Insights",
       links: [
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms of Service", href: "/terms" },
-        { label: "Cookie Policy", href: "/cookies" },
-        { label: "Security", href: "/security" },
-        { label: "Compliance", href: "/compliance" },
+        { label: "Property Tech in Africa", href: "/articles/property-tech" },
+        { label: "Data-Driven Decisions", href: "/articles/data-driven" },
+        { label: "Website Design Strategy", href: "/articles/website-design" },
+        { label: "Custom Software", href: "/articles/custom-software" },
+        { label: "Mobile Apps", href: "/articles/mobile-apps" },
       ],
     },
   ];

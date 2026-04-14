@@ -14,52 +14,53 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t">
-      <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
-        <div className="py-8 sm:py-12 grid grid-cols-1 lg:grid-cols-4 gap-8 sm:gap-12">
-          {/* Company Info Section */}
-          <div className="space-y-4 sm:space-y-6">
-            <Link to="/" className="flex items-center space-x-2">
-              <img 
-               src="/logo.png" 
-                alt="ThickTek Logo" 
-                className="h-6 sm:h-8 w-auto"
+    <footer className="border-t border-border/60 bg-background">
+      <div className="container">
+        <div className="py-10 grid grid-cols-1 lg:grid-cols-4 gap-10">
+          <div className="space-y-5">
+            <Link to="/" className="flex items-center space-x-2.5">
+              <img
+                src="/logo.png"
+                alt="ThickTek Logo"
+                className="h-6 w-auto"
               />
-              <span className="font-bold text-lg sm:text-xl">ThickTek</span>
+              <span className="font-semibold text-base tracking-tight text-foreground">ThickTek</span>
             </Link>
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              Empowering innovation and shaping the future of technology from the heart of Africa.
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Building digital systems that move businesses forward — from Kigali to the world.
             </p>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+            <div className="space-y-2">
+              <div className="flex items-center text-xs text-muted-foreground gap-2">
+                <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
                 Kigali, Rwanda
               </div>
-              <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-                +250780849228
+              <div className="flex items-center text-xs text-muted-foreground gap-2">
+                <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                +250 780 849 228
               </div>
-              <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-                contact@thicktek.com
+              <div className="flex items-center text-xs text-muted-foreground gap-2">
+                <Mail className="w-3.5 h-3.5 flex-shrink-0" />
+                admin@thicktek.com
               </div>
             </div>
-            <Button variant="outline" onClick={handleSchedule} className="text-xs sm:text-sm">
-              Schedule Consultation
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleSchedule}
+              className="text-xs h-8 border-border/80 hover:border-primary/40 hover:text-primary transition-colors"
+            >
+              Schedule a Call
             </Button>
           </div>
 
-          {/* Links Section */}
           <div className="lg:col-span-3">
             <FooterLinks />
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="py-4 sm:py-6 border-t">
+        <div className="py-5 border-t border-border/40">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-xs sm:text-sm text-muted-foreground">
+            <div className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} ThickTek. All rights reserved.
             </div>
             <FooterSocial />

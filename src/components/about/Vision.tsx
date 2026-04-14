@@ -47,7 +47,7 @@ export function Vision() {
         />
       </div>
 
-      <div className="container mx-auto px-4 py-8 relative z-10">
+      <div className="container py-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* About Us Content */}
           <motion.div

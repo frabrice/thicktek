@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Code2, Cloud, Database, Shield, Smartphone, BarChart } from 'lucide-react';
+import { ArrowRight, Code as Code2, Cloud, Database, Shield, Smartphone, BarChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
@@ -94,7 +94,7 @@ export function SolutionShowcase() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 relative">
+      <div className="container relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
