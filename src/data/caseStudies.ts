@@ -52,7 +52,8 @@ export const caseStudies: CaseStudy[] = [
     category: 'Marketplace & Mobility',
     year: '2023',
     tier: 'core',
-    image: 'https://images.pexels.com/photos/3806249/pexels-photo-3806249.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://res.cloudinary.com/dz4nl90xs/image/upload/v1776175515/Kivu_Ride_-_Thick_Tek_opr9ab.png',
+    url: 'https://www.kivuride.com/',
     tags: ['Ride-Hailing', 'Fleet Management', 'Operations', 'Mobile'],
     overview:
       'KivuRide is a structured ride-hailing platform designed for the East African market, with a focus on fleet-level operations rather than individual driver gig work. The system provides a centralized control layer for operators managing multiple vehicles and drivers.',
@@ -108,9 +109,9 @@ export const caseStudies: CaseStudy[] = [
     category: 'Platforms & Digital Infrastructure',
     year: '2022',
     tier: 'core',
-    image: 'https://raw.githubusercontent.com/frabrice/work-done/refs/heads/main/Hire%20Me%20Afrika.PNG',
+    image: 'https://res.cloudinary.com/dz4nl90xs/image/upload/v1776175802/HMA_diqba2.jpg',
     tags: ['Talent Platform', 'Employment', 'Africa', 'Matching System'],
-    url: 'https://hireme.africa',
+    url: 'https://hiremeafrika.com/',
     overview:
       'Hire Me Africa is a structured talent discovery and matching platform that connects vetted African professionals with employers across the continent and globally. The platform uses filtering, ranking, and structured profiles to surface the right candidates efficiently.',
     problem:
@@ -137,7 +138,8 @@ export const caseStudies: CaseStudy[] = [
     category: 'Platforms & Digital Infrastructure',
     year: '2024',
     tier: 'core',
-    image: 'https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://res.cloudinary.com/dz4nl90xs/image/upload/v1776175512/Dajah_Tunes_n4qlls.png',
+    url: 'https://dajahtunes.com/',
     tags: ['Music Tech', 'Distribution', 'Rights Management', 'Revenue'],
     overview:
       'Dajah Tunes is a digital infrastructure platform built to manage music distribution, rights tracking, and revenue flows for African artists and labels operating across multiple markets. The platform addresses the systemic disorganization of music monetization in the region.',
