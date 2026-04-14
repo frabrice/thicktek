@@ -17,32 +17,32 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: 'emoducar',
-    name: 'EmodoCar',
-    tagline: 'Car rental marketplace connecting clients and providers across Rwanda.',
-    category: 'Marketplace & Mobility',
-    year: '2023',
+    slug: 'grit-africa-analytics',
+    name: 'Grit Africa Analytics',
+    tagline: 'Consultancy platform built to present research, insights, and professional services across Africa.',
+    category: 'Consultancy & Analytics',
+    year: '2024',
     tier: 'core',
-    image: 'https://raw.githubusercontent.com/frabrice/work-done/refs/heads/main/Emodocar%20Feeatured%20Graphivc.png',
-    tags: ['Marketplace', 'Car Rental', 'Mobile App', 'Transport'],
-    url: 'https://emodocar.com',
+    image: 'https://raw.githubusercontent.com/frabrice/work-done/refs/heads/main/Grit%20Africa%20Analytics.PNG',
+    tags: ['Research', 'Analytics', 'Consultancy', 'Strategy'],
+    url: 'https://gritafricaanalytics.com/',
     overview:
-      'EmodoCar is a full car rental marketplace system built to connect individual clients with car rental providers across Rwanda. The platform handles discovery, booking, fleet management, and communication in one unified system.',
+      'Grit Africa Analytics is a consultancy platform designed to present data-driven research, strategic insights, and professional services to clients across the African continent and beyond. The platform positions the firm as a credible authority in regional analytics.',
     problem:
-      'Car rental businesses in Rwanda operated manually — phone calls, WhatsApp messages, handwritten logs. Clients had no way to compare providers, check availability, or book online. Providers had no central system to manage their fleets, bookings, or customer records.',
+      'Consultancy firms in Africa often struggle to present their expertise credibly online. Without a structured digital presence, potential clients have no way to evaluate service quality, understand research methodology, or engage with published insights before reaching out.',
     built: [
-      'Client-facing marketplace with search, filter, and real-time availability',
-      'Provider dashboard for fleet management, booking approvals, and analytics',
-      'Automated booking flow with confirmation notifications',
-      'Mobile-first design for both clients and operators',
-      'Admin panel for platform oversight and dispute resolution',
+      'Professional service presentation pages with research methodology sections',
+      'Insights and publications hub for distributing research content',
+      'Client inquiry and engagement flow',
+      'Team and credentials showcase',
+      'SEO-optimized structure for discoverability across African markets',
     ],
     result:
-      'EmodoCar transformed a fragmented, phone-based rental industry into an organized digital marketplace. Providers reported significant reductions in no-shows and double-bookings, while clients gained full transparency into pricing and availability.',
+      'Grit Africa Analytics gained a professional digital presence that accurately reflects its expertise. The platform became a credible entry point for clients seeking research-backed consultancy across the continent.',
     metrics: [
-      { label: 'Providers onboarded', value: '20+' },
-      { label: 'Booking conversion improvement', value: '3x' },
-      { label: 'Time to book (from 30+ min)', value: '< 5 min' },
+      { label: 'Markets served', value: 'Pan-African' },
+      { label: 'Service areas', value: 'Multi-domain' },
+      { label: 'Research visibility', value: 'Fully indexed' },
     ],
   },
   {
@@ -81,10 +81,10 @@ export const caseStudies: CaseStudy[] = [
     category: 'Property & Hospitality',
     year: '2023–2024',
     tier: 'core',
-    image: 'https://images.pexels.com/photos/1838640/pexels-photo-1838640.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://res.cloudinary.com/dz4nl90xs/image/upload/v1775745898/IMG_9679_zaukot.jpg',
     tags: ['Real Estate', 'Hospitality', 'Booking Systems', 'Property Management'],
     overview:
-      'A grouped case study covering five property and hospitality businesses that ThickTek built digital systems for: Vis Focus, Kaliba Beach Hotel, Crest Point Estate, FairyScape Apartments, and Kigali Ikaze Suites. Each project addressed the same core problem from a different angle.',
+      'A grouped case study covering property and hospitality businesses that ThickTek built digital systems for: Vis Focus, Kaliba Beach Hotel, Crest Point Estate, FairyScape Apartments, Joy Homes, Havre Apartment, Ingoga Place, and Kigali Ikaze Suites. Each project addressed the same core problem from a different angle.',
     problem:
       'Property and hospitality businesses in East Africa were losing clients daily through broken inquiry processes, no online booking, no visibility into availability, and websites that existed only as digital brochures with no conversion mechanism.',
     built: [
@@ -95,11 +95,11 @@ export const caseStudies: CaseStudy[] = [
       'Mobile-optimized designs built for local network conditions',
     ],
     result:
-      'Across all five properties, online inquiries replaced phone-only leads, booking management became structured and trackable, and each business gained a professional digital presence that matched their physical quality.',
+      'Across all properties, online inquiries replaced phone-only leads, booking management became structured and trackable, and each business gained a professional digital presence that matched their physical quality.',
     metrics: [
-      { label: 'Properties transformed', value: '5' },
+      { label: 'Properties transformed', value: '8+' },
       { label: 'Inquiry channels replaced', value: 'Phone → Digital' },
-      { label: 'Average booking process time', value: 'Fully automated' },
+      { label: 'Booking process', value: 'Fully automated' },
     ],
   },
   {
@@ -160,6 +160,35 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Market coverage', value: 'Pan-African + Global' },
     ],
   },
+  {
+    slug: 'insightium',
+    name: 'Insightium',
+    tagline: 'A media and insights platform created for publishing structured content and engaging readers.',
+    category: 'Media & Publishing',
+    year: '2024',
+    tier: 'core',
+    image: 'https://res.cloudinary.com/dz4nl90xs/image/upload/v1776179137/The_Insightium_digital_platform_promotion_enbvw0.png',
+    url: 'https://www.theinsightium.com/',
+    tags: ['Media', 'Publishing', 'Content Platform', 'Insights'],
+    overview:
+      'Insightium is a structured media and insights platform designed to support the publishing of long-form content, analysis pieces, and reader engagement at scale. Built for publishers who need more than a basic blog — they need a full editorial infrastructure.',
+    problem:
+      'Media and insights brands often launch on generic CMS platforms that limit their ability to structure content, segment audiences, and build real reader engagement. The result is high-quality editorial work buried in poor digital experiences.',
+    built: [
+      'Editorial publishing system with category and tag management',
+      'Long-form article layout optimized for readability',
+      'Reader engagement and comment infrastructure',
+      'Author profile and contributor management',
+      'SEO architecture built for content discoverability',
+    ],
+    result:
+      'Insightium gave the publisher a dedicated digital infrastructure that matched the quality of their content — structured, searchable, and built to grow a loyal readership.',
+    metrics: [
+      { label: 'Content types supported', value: 'Multi-format' },
+      { label: 'SEO structure', value: 'Fully optimized' },
+      { label: 'Reader experience', value: 'Editorial-grade' },
+    ],
+  },
 ];
 
 export interface SelectedWork {
@@ -179,17 +208,8 @@ export const selectedWork: SelectedWork[] = [
     category: 'Platforms & Digital Infrastructure',
     year: '2024',
     image: 'https://raw.githubusercontent.com/frabrice/work-done/refs/heads/main/Umurimo.PNG',
-    url: 'https://umurimo.rw',
+    url: 'https://www.umurimo.com/',
     tags: ['Jobs', 'Recruitment', 'Rwanda'],
-  },
-  {
-    name: 'Grit Africa Analytics',
-    description: 'Consultancy platform focused on research, data, and strategic insights across Africa.',
-    category: 'Consultancy & Support',
-    year: '2024',
-    image: 'https://raw.githubusercontent.com/frabrice/work-done/refs/heads/main/Grit%20Africa%20Analytics.PNG',
-    url: 'https://gritafricaanalytics.com',
-    tags: ['Research', 'Analytics', 'Strategy'],
   },
   {
     name: 'Wito Support',
@@ -197,15 +217,119 @@ export const selectedWork: SelectedWork[] = [
     category: 'Consultancy & Support',
     year: '2024',
     image: 'https://raw.githubusercontent.com/frabrice/work-done/refs/heads/main/Wito%20Support.PNG',
-    url: 'https://witosupport.com',
+    url: 'https://www.witosupport.com/',
     tags: ['Customer Support', 'Outsourcing', 'Global'],
+  },
+];
+
+export interface MiniProject {
+  name: string;
+  description: string;
+  category: string;
+  url?: string;
+}
+
+export const miniProjects: MiniProject[] = [
+  {
+    name: "Joy Home's",
+    description: 'An apartment website created to present units clearly and support client inquiries.',
+    category: 'Property & Hospitality',
+    url: 'https://joyhomesapartments.com',
+  },
+  {
+    name: 'Havre Apartment',
+    description: 'A property platform designed to showcase an apartment building and improve visibility.',
+    category: 'Property & Hospitality',
+    url: 'https://www.havreapartments.com/',
+  },
+  {
+    name: 'FairyScape Apartments',
+    description: 'A modern apartment website built to simplify bookings and strengthen online presence.',
+    category: 'Property & Hospitality',
+    url: 'https://www.fairyscapeapartments.com/',
+  },
+  {
+    name: 'Ingoga Place',
+    description: 'An apartment platform designed to highlight accommodations and support direct engagement.',
+    category: 'Property & Hospitality',
+    url: 'https://www.ingogaplace.com/',
+  },
+  {
+    name: 'Vis Focus',
+    description: 'A structured property website created to improve listing presentation and client communication.',
+    category: 'Property & Hospitality',
+    url: 'https://visfocuskigali.com/',
+  },
+  {
+    name: 'Kaliba Beach Hotel',
+    description: 'A hospitality website built to showcase rooms and improve booking interactions.',
+    category: 'Property & Hospitality',
+    url: 'https://luxury-kaliba-beach-rn0w.bolt.host/',
+  },
+  {
+    name: 'Crest Point Estate',
+    description: 'A real estate website designed to present property offerings and capture buyer interest.',
+    category: 'Property & Hospitality',
+    url: 'https://vintagekigali.com/',
+  },
+  {
+    name: 'Kigali Ikaze Suites',
+    description: 'A hospitality platform developed to enhance accommodation visibility and guest inquiries.',
+    category: 'Property & Hospitality',
+    url: 'https://kigaliikazesuites.com/',
+  },
+  {
+    name: 'Abana Wellness',
+    description: 'An NGO website created to communicate mission, programs, and community impact clearly.',
+    category: 'NGO & Social Impact',
+    url: 'https://abanawellness.org/',
+  },
+  {
+    name: 'PeacEdu',
+    description: 'An NGO platform designed to present educational initiatives and strengthen public engagement.',
+    category: 'NGO & Social Impact',
+    url: 'https://www.peacedu.org/',
+  },
+  {
+    name: 'Hello Fraser Valley',
+    description: 'A social enterprise website built to showcase local businesses, arts, events, and talent.',
+    category: 'Social Enterprise',
+    url: 'https://hellofraservalley.com/',
+  },
+  {
+    name: 'Widen Nature',
+    description: 'A social enterprise platform created to present mission-driven work and community-focused initiatives.',
+    category: 'Social Enterprise',
+    url: 'https://widennature.com/',
+  },
+  {
+    name: 'Umurimo',
+    description: 'A job listing platform developed to manage opportunities and simplify access for users.',
+    category: 'Platforms & Digital Infrastructure',
+    url: 'https://www.umurimo.com/',
+  },
+  {
+    name: 'Grit Africa Analytics',
+    description: 'A consultancy website designed to present research, insights, and professional services clearly.',
+    category: 'Consultancy & Analytics',
+    url: 'https://gritafricaanalytics.com/',
+  },
+  {
+    name: 'Wito Support',
+    description: 'A support-focused platform built to improve customer communication and service coordination.',
+    category: 'Consultancy & Support',
+    url: 'https://www.witosupport.com/',
   },
 ];
 
 export const categoryGroups = [
   {
+    label: 'Consultancy & Analytics',
+    slugs: ['grit-africa-analytics'],
+  },
+  {
     label: 'Marketplace & Mobility',
-    slugs: ['emoducar', 'kivuride'],
+    slugs: ['kivuride'],
   },
   {
     label: 'Property & Hospitality',
@@ -214,5 +338,9 @@ export const categoryGroups = [
   {
     label: 'Platforms & Digital Infrastructure',
     slugs: ['hire-me-africa', 'dajah-tunes'],
+  },
+  {
+    label: 'Media & Publishing',
+    slugs: ['insightium'],
   },
 ];

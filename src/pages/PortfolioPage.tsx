@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Grid3x3 as Grid3X3, LayoutList } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { caseStudies, selectedWork, categoryGroups } from '@/data/caseStudies';
+import { caseStudies, selectedWork, categoryGroups, miniProjects } from '@/data/caseStudies';
 import { CaseStudyCard } from '@/components/portfolio/CaseStudyCard';
 import { SelectedWorkCard } from '@/components/portfolio/SelectedWorkCard';
+import { MiniProjectCard } from '@/components/portfolio/MiniProjectCard';
 
 type ViewMode = 'list' | 'category';
 
@@ -105,9 +106,28 @@ export default function PortfolioPage() {
             <h2 className="text-2xl font-bold mb-1">Selected Work</h2>
             <p className="text-muted-foreground text-sm">Additional projects that demonstrate range and depth</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {selectedWork.map((work, i) => (
               <SelectedWorkCard key={work.name} work={work} index={i} />
+            ))}
+          </div>
+        </div>
+
+        {/* Section 3 — All Projects */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold mb-1">All Projects</h2>
+            <p className="text-muted-foreground text-sm">Every platform and digital system built by ThickTek</p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {miniProjects.map((project, i) => (
+              <MiniProjectCard key={`${project.name}-${i}`} project={project} index={i} />
             ))}
           </div>
         </div>
