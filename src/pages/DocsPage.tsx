@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Download, Clock, BookOpen, Loader2 } from 'lucide-react';
+import { FileText, Download, Clock, BookOpen, Loader as Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { generateCompanyProfilePdf } from '@/lib/generatePdf';
 
