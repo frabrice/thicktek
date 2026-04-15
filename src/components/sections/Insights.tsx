@@ -64,7 +64,7 @@ export default function Insights() {
   const [featured, ...rest] = articles;
 
   return (
-    <section className="py-16 border-t border-border/40">
+    <section className="py-10 border-t border-border/40">
       <div className="container max-w-6xl">
 
         <motion.div
@@ -72,7 +72,7 @@ export default function Insights() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8"
         >
           <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// Insights</p>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">

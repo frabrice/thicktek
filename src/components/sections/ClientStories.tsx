@@ -54,14 +54,14 @@ export default function ClientStories() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 border-t border-border/40">
+    <section className="py-10 border-t border-border/40">
       <div className="container max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8"
         >
           <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// Client Work</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
@@ -72,7 +72,7 @@ export default function ClientStories() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
           {stories.map((story, i) => {
             const c = accentMap[story.accent];
             return (

@@ -26,14 +26,14 @@ export default function TheShift() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 border-t border-border/40">
+    <section className="py-10 border-t border-border/40">
       <div className="container max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8"
         >
           <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// The Shift</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
@@ -46,7 +46,7 @@ export default function TheShift() {
           </p>
         </motion.div>
 
-        <div className="rounded-lg border border-border/60 bg-card overflow-hidden mb-10">
+        <div className="rounded-lg border border-border/60 bg-card overflow-hidden mb-6">
           <div className="grid grid-cols-[32px_1fr_40px_1fr] text-xs border-b border-border/40 bg-[hsl(216,24%,6%)]">
             <div className="p-3 border-r border-border/30" />
             <div className="p-3 text-muted-foreground/50 font-mono uppercase tracking-wider">Before</div>

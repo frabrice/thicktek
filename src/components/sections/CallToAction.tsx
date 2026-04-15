@@ -7,7 +7,7 @@ export default function CallToAction() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 border-t border-border/40 relative overflow-hidden">
+    <section className="py-10 border-t border-border/40 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,hsl(213,94%,58%,0.06),transparent)]" />
       </div>
@@ -22,7 +22,7 @@ export default function CallToAction() {
             className="h-px bg-gradient-to-r from-transparent via-primary to-transparent origin-left"
           />
 
-          <div className="p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
