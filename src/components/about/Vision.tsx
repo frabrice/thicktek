@@ -1,194 +1,161 @@
 import { motion } from 'framer-motion';
-import { Rocket, Target, Lightbulb, ArrowRight } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+import { Target, Lightbulb, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const stats = [
+  { label: 'Founded', value: '2022' },
+  { label: 'Team', value: '20+' },
+  { label: 'Countries', value: '5+' },
+  { label: 'Projects', value: '30+' },
+];
 
 export function Vision() {
   const navigate = useNavigate();
 
-  const handleSchedule = () => {
-    window.scrollTo(0, 0);
-    navigate('/schedule');
-  };
-
-  const stats = [
-    { label: 'Founded', value: '2022' },
-    { label: 'Team Members', value: '20+' },
-    { label: 'Countries', value: '5+' },
-    { label: 'Projects', value: '30+' },
-  ];
-
   return (
-    <section className="min-h-[80vh] relative flex items-center overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)]" />
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: [0.5, 0.3, 0.5], 
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0]
+    <section className="min-h-[80vh] flex items-center relative overflow-hidden pt-[68px]">
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(215 15% 50% / 0.04) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
           }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute -top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/30 rounded-full blur-[100px] transform -translate-x-1/2"
         />
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: [0.3, 0.5, 0.3], 
-            scale: [1, 1.1, 1],
-            rotate: [0, -90, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity, delay: 1 }}
-          className="absolute -bottom-1/2 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px]"
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div
+          className="absolute right-0 top-1/4 w-[560px] h-[560px] rounded-full opacity-[0.05]"
+          style={{ background: 'radial-gradient(circle, hsl(213, 94%, 58%) 0%, transparent 70%)' }}
         />
       </div>
 
-      <div className="container py-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* About Us Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 space-y-8"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20"
-            >
-              <Rocket className="w-5 h-5 text-primary mr-2" />
-              <span className="text-sm font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                ABOUT US
-              </span>
+      <div className="container py-10 lg:py-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-14 lg:gap-20 items-center max-w-6xl mx-auto">
+
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-0">
+            <motion.div variants={itemVariants} className="mb-6">
+              <span className="label-mono">// About Us</span>
             </motion.div>
-            
-            <h1 className="text-2xl lg:text-4xl font-bold tracking-tight leading-tight">
-              Pioneering{' '}
-              <div className="relative inline-block">
-                <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                  Tomorrow's
-                </span>
-                <motion.div
-                  className="absolute -inset-1 bg-primary/20 blur-lg"
-                  animate={{ opacity: [0.5, 0.8, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </div>
-              <br />Technology
-            </h1>
-            
-            <div className="text-sm text-muted-foreground space-y-6 leading-relaxed">
-              <p>
-                At ThickTek, we are more than just a technology company. We are innovators, 
-                problem-solvers, and visionaries dedicated to transforming businesses through 
-                cutting-edge technology solutions.
-              </p>
-              <p>
-                Founded in 2022 in the heart of Africa, we've grown from a small team of 
-                passionate technologists to a global force in digital innovation. Our journey 
-                is marked by continuous learning, relentless innovation, and an unwavering 
-                commitment to excellence.
-              </p>
-            </div>
 
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Button size="lg" onClick={handleSchedule} className="group">
+            <motion.h1
+              variants={itemVariants}
+              className="text-[2.5rem] sm:text-[3.25rem] leading-[1.05] mb-5 text-foreground font-display"
+              style={{ letterSpacing: '-0.03em', fontWeight: 700 }}
+            >
+              Serious technology,<br />
+              built from the<br />
+              <span className="text-primary">heart of Africa.</span>
+            </motion.h1>
+
+            <motion.div variants={itemVariants} className="text-muted-foreground text-base space-y-4 leading-relaxed mb-8 max-w-md">
+              <p>
+                ThickTek was founded in 2022 in Kigali with a single conviction: that the best
+                digital infrastructure shouldn't only exist in Silicon Valley. We build systems
+                that work — for businesses in Africa and beyond.
+              </p>
+              <p>
+                We're not a consultancy. We're engineers and operators who take ownership
+                of outcomes, not just deliverables.
+              </p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 mb-10">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-7 h-11 text-sm font-semibold group"
+                onClick={() => { window.scrollTo(0, 0); navigate('/schedule'); }}
+              >
                 Work With Us
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button size="lg" variant="outline">
-                Learn More
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground border border-border/70 hover:border-border px-7 h-11 text-sm"
+                onClick={() => { window.scrollTo(0, 0); navigate('/how-it-works'); }}
+              >
+                How We Work
               </Button>
-            </div>
+            </motion.div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8">
-              {stats.map((stat, index) => (
-                <motion.div
+            <motion.div variants={itemVariants} className="grid grid-cols-4 gap-4 pt-2">
+              {stats.map((stat) => (
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="relative group"
+                  className="rounded-xl border border-border/60 bg-card p-4 hover:border-primary/30 transition-colors duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg blur-lg group-hover:opacity-100 opacity-0 transition-opacity" />
-                  <div className="relative p-4 rounded-lg border border-primary/10 bg-background/50 backdrop-blur-sm">
-                    <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
-                </motion.div>
+                  <div className="text-2xl font-bold font-display text-primary" style={{ letterSpacing: '-0.03em' }}>{stat.value}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+                </div>
               ))}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:flex flex-col gap-4"
+          >
+            <div className="group rounded-xl border border-border/60 bg-card overflow-hidden hover:border-primary/30 transition-colors duration-300">
+              <div className="h-1 bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" />
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center mr-3">
+                    <Target className="w-4 h-4 text-blue-500" />
+                  </div>
+                  <h3 className="text-sm font-semibold tracking-tight">Our Mission</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  To empower businesses through systems-level technology — fostering digital
+                  transformation and sustainable growth while showcasing African excellence
+                  on the global stage.
+                </p>
+              </div>
+            </div>
+
+            <div className="group rounded-xl border border-border/60 bg-card overflow-hidden hover:border-primary/30 transition-colors duration-300">
+              <div className="h-1 bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent" />
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mr-3">
+                    <Lightbulb className="w-4 h-4 text-emerald-500" />
+                  </div>
+                  <h3 className="text-sm font-semibold tracking-tight">Our Vision</h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  To be the defining technology partner for Africa's most ambitious businesses —
+                  building infrastructure that scales regionally and competes globally.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-border/40 bg-secondary/30 p-4">
+              <p className="font-mono-code text-xs text-muted-foreground/60 leading-relaxed">
+                <span className="text-emerald-400/70">~</span>{' '}
+                <span className="text-muted-foreground/40">Founded</span>{' '}
+                <span className="text-primary/60">Kigali, Rwanda</span>{' '}
+                <span className="text-muted-foreground/40">·</span>{' '}
+                <span className="text-primary/60">2022</span>
+              </p>
             </div>
           </motion.div>
 
-          {/* Mission & Vision Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 space-y-4 pt-16 lg:pt-24"
-          >
-            <Card className="relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-500/20" />
-              <div className="relative p-6">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
-                <div className="relative">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 rounded-full bg-blue-500/10 mr-3 group-hover:scale-110 transition-transform">
-                      <Target className="w-4 h-4 text-blue-500" />
-                    </div>
-                    <h3 className="text-lg font-semibold tracking-tight">Our Mission</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">
-                    To empower businesses through innovative technology solutions, fostering 
-                    digital transformation and sustainable growth while showcasing African 
-                    excellence in the global tech landscape.
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20" />
-              <div className="relative p-6">
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
-                <div className="relative">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 rounded-full bg-emerald-500/10 mr-3 group-hover:scale-110 transition-transform">
-                      <Lightbulb className="w-4 h-4 text-emerald-500" />
-                    </div>
-                    <h3 className="text-lg font-semibold tracking-tight">Our Vision</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed italic">
-                    To be the leading force in technological innovation from Africa, 
-                    creating solutions that drive global progress and positively impact 
-                    communities worldwide.
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
         </div>
       </div>
 
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 }

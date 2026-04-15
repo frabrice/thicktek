@@ -74,7 +74,7 @@ export default function Insights() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// Insights</p>
+          <p className="label-mono mb-4">// Insights</p>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight">
             Thinking on technology,<br />strategy, and growth.
           </h2>

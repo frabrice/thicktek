@@ -29,7 +29,7 @@ export default function CallToAction() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// Let's Build</p>
+              <p className="label-mono mb-4">// Let's Build</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
                 Let us show you what<br />
                 <span className="text-primary">your website could become.</span>

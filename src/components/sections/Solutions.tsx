@@ -70,7 +70,7 @@ export default function Solutions() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// What We Build</p>
+          <p className="label-mono mb-4">// What We Build</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
             Three ways we transform<br />
             how your business operates online.

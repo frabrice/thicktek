@@ -1,17 +1,29 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, Code as Code2, Cloud, Database, Shield, Smartphone, BarChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const solutions = [
+  { icon: Code2, label: 'Web & Mobile', color: 'text-blue-400' },
+  { icon: Cloud, label: 'Cloud Solutions', color: 'text-emerald-400' },
+  { icon: Database, label: 'Data Engineering', color: 'text-amber-400' },
+  { icon: Shield, label: 'Cybersecurity', color: 'text-blue-400' },
+  { icon: Smartphone, label: 'Infrastructure', color: 'text-emerald-400' },
+  { icon: BarChart, label: 'Analytics', color: 'text-amber-400' },
+];
+
 export function SolutionShowcase() {
   const navigate = useNavigate();
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 300], [0, 100]);
-
-  const handleSchedule = () => {
-    window.scrollTo(0, 0);
-    navigate('/schedule');
-  };
 
   const scrollToSolutions = () => {
     const solutionsSection = document.getElementById('solutions');
@@ -20,155 +32,106 @@ export function SolutionShowcase() {
     }
   };
 
-  const solutions = [
-    { icon: Code2, label: 'Web & Mobile' },
-    { icon: Cloud, label: 'Cloud Solutions' },
-    { icon: Database, label: 'Data Engineering' },
-    { icon: Shield, label: 'Cybersecurity' },
-    { icon: Smartphone, label: 'Digital Infrastructure' },
-    { icon: BarChart, label: 'Analytics Platform' },
-  ];
-
   return (
-    <section className="min-h-[80vh] relative flex items-center overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/10 [mask-image:radial-gradient(white,transparent_70%)]" />
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0.5, 0.3, 0.5], scale: [1, 1.2, 1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute -top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/30 rounded-full blur-[100px] transform -translate-x-1/2"
+    <section className="min-h-[72vh] flex items-center relative overflow-hidden pt-[68px]">
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, hsl(215 15% 50% / 0.04) 1px, transparent 1px)`,
+            backgroundSize: '24px 24px',
+          }}
         />
-        
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, delay: 1 }}
-          className="absolute -bottom-1/2 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px]"
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div
+          className="absolute right-0 top-1/4 w-[600px] h-[600px] rounded-full opacity-[0.05]"
+          style={{ background: 'radial-gradient(circle, hsl(213, 94%, 58%) 0%, transparent 70%)' }}
         />
       </div>
 
-      {/* Floating Solution Icons */}
-      <div className="absolute inset-0 overflow-hidden">
-        {solutions.map((solution, index) => {
-          const Icon = solution.icon;
-          const delay = index * 0.2;
-          const duration = 3 + Math.random() * 2;
-          const initialX = -20 + Math.random() * 40;
-          const initialY = -20 + Math.random() * 40;
+      <div className="container py-10 lg:py-16 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-14 lg:gap-20 items-center max-w-6xl mx-auto">
 
-          return (
-            <motion.div
-              key={solution.label}
-              initial={{ opacity: 0, x: initialX, y: initialY }}
-              animate={{
-                opacity: [0, 1, 0],
-                x: [initialX, initialX + 40, initialX],
-                y: [initialY, initialY - 40, initialY],
-              }}
-              transition={{
-                duration,
-                repeat: Infinity,
-                delay,
-                ease: "easeInOut",
-              }}
-              className="absolute"
-              style={{
-                left: `${15 + (index * 15)}%`,
-                top: `${20 + (index * 10)}%`,
-              }}
-            >
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-xl bg-background/80 backdrop-blur-sm border border-primary/20 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-primary" />
-                </div>
-                <div className="mt-2 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-primary/20 text-xs">
-                  {solution.label}
-                </div>
-              </div>
+          <motion.div variants={containerVariants} initial="hidden" animate="visible">
+            <motion.div variants={itemVariants} className="mb-6">
+              <span className="label-mono">// Enterprise Solutions</span>
             </motion.div>
-          );
-        })}
-      </div>
 
-      {/* Main Content */}
-      <div className="container relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ y }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="text-center mb-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 mb-6"
-            >
-              <span className="text-sm font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60 drop-shadow-sm">
-                ENTERPRISE SOLUTIONS
-              </span>
-            </motion.div>
-            
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-3xl md:text-4xl font-bold mb-6 tracking-tight leading-tight drop-shadow-lg"
+              variants={itemVariants}
+              className="text-[2.5rem] sm:text-[3.25rem] leading-[1.05] mb-5 text-foreground font-display"
+              style={{ letterSpacing: '-0.03em', fontWeight: 700 }}
             >
-              Transform Your{' '}
-              <span className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                Business
-              </span>{' '}
-              With <br /> Next-Generation Technology
+              Technology that<br />
+              moves your business<br />
+              <span className="text-primary">measurably forward.</span>
             </motion.h1>
-            
+
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-base text-foreground mb-12 max-w-2xl mx-auto font-medium tracking-wide leading-relaxed drop-shadow-md"
+              variants={itemVariants}
+              className="text-muted-foreground text-base leading-relaxed mb-8 max-w-md"
             >
-              From custom software development to cloud solutions, we deliver innovative 
-              technology solutions that drive growth and efficiency.
+              From custom platforms to cloud infrastructure — every solution we build
+              is engineered around your specific business objectives, not off-the-shelf assumptions.
             </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
+
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3">
               <Button
                 size="lg"
-                onClick={handleSchedule}
-                className="group relative overflow-hidden"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-7 h-11 text-sm font-semibold group"
+                onClick={() => { window.scrollTo(0, 0); navigate('/schedule'); }}
               >
-                <span className="relative z-10">Get Started</span>
-                <motion.div
-                  className="absolute inset-0 bg-primary-foreground/10"
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: '100%' }}
-                  transition={{ duration: 0.5 }}
-                />
-                <ArrowRight className="relative z-10 ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                Get Started
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="backdrop-blur-sm"
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-muted-foreground hover:text-foreground border border-border/70 hover:border-border px-7 h-11 text-sm"
                 onClick={scrollToSolutions}
               >
                 View Solutions
               </Button>
             </motion.div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block"
+          >
+            <div className="grid grid-cols-2 gap-3">
+              {solutions.map((solution, i) => {
+                const Icon = solution.icon;
+                return (
+                  <motion.div
+                    key={solution.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="group rounded-xl border border-border/60 bg-card p-4 flex items-center gap-3 hover:border-primary/30 transition-colors duration-300 cursor-default"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/80 transition-colors">
+                      <Icon className={`w-3.5 h-3.5 ${solution.color}`} />
+                    </div>
+                    <span className="text-xs font-medium text-foreground/80">{solution.label}</span>
+                  </motion.div>
+                );
+              })}
+            </div>
+            <div className="mt-3 rounded-xl border border-border/40 bg-secondary/30 p-4">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs text-muted-foreground/60 font-mono-code">Accepting new projects</span>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   );
 }

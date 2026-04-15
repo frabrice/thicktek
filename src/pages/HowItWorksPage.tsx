@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
             viewport={{ once: true }}
             className="mb-10"
           >
-            <p className="text-sm font-semibold text-blue-500 tracking-widest uppercase mb-4">What makes us different</p>
+            <p className="label-mono mb-4">// What Makes Us Different</p>
             <h2 className="text-3xl font-bold">We think like operators,<br />not just developers.</h2>
           </motion.div>
 
@@ -189,20 +189,44 @@ export default function HowItWorksPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-4xl rounded-2xl border border-border bg-card p-12 text-center"
+          className="max-w-4xl rounded-2xl border border-border/60 bg-card overflow-hidden"
         >
-          <h3 className="text-3xl font-bold mb-4">Ready to start the process?</h3>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-lg">
-            The audit is where every engagement starts. It is free, specific, and gives you something useful whether we work together or not.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" onClick={() => { window.scrollTo(0, 0); navigate('/audit'); }}>
-              Request a Free Audit
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => { window.scrollTo(0, 0); navigate('/schedule'); }}>
-              Book a Strategy Call
-            </Button>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ once: true }}
+            className="h-px bg-gradient-to-r from-transparent via-primary to-transparent origin-left"
+          />
+          <div className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <p className="label-mono mb-4">// Get Started</p>
+              <h3 className="text-3xl font-bold mb-3 leading-tight tracking-tight">
+                Ready to start<br />
+                <span className="text-primary">the process?</span>
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                The audit is where every engagement starts. Free, specific, and useful whether we work together or not.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-11 text-sm font-medium" onClick={() => { window.scrollTo(0, 0); navigate('/audit'); }}>
+                Request a Free Audit
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+              <Button size="lg" variant="ghost" className="w-full border border-border hover:border-border/80 text-muted-foreground hover:text-foreground h-11 text-sm group" onClick={() => { window.scrollTo(0, 0); navigate('/schedule'); }}>
+                Book a Strategy Call
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Button>
+              <div className="flex items-center gap-4 pt-1">
+                {['Free · no commitment', '48hr turnaround', 'Real analysis'].map((item, i) => (
+                  <div key={i} className="flex items-center gap-1.5 text-xs text-muted-foreground/60">
+                    <span className="w-1 h-1 rounded-full bg-primary/40" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
 

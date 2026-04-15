@@ -51,15 +51,16 @@ export function FooterLinks() {
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
       {sections.map((section) => (
         <div key={section.title}>
-          <h3 className="text-sm sm:text-base font-semibold mb-3">{section.title}</h3>
-          <ul className="space-y-1 sm:space-y-2">
+          <h3 className="text-xs font-semibold text-foreground/60 uppercase tracking-widest mb-4">{section.title}</h3>
+          <ul className="space-y-2">
             {section.links.map((link) => (
               <li key={link.label}>
                 <Link
                   to={link.href}
-                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-150 relative group inline-block"
                 >
                   {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-primary/50 group-hover:w-full transition-all duration-200" />
                 </Link>
               </li>
             ))}

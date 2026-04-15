@@ -63,7 +63,7 @@ export default function ClientStories() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// Client Work</p>
+          <p className="label-mono mb-4">// Client Work</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
             Real systems.<br />Measurable results.
           </h2>

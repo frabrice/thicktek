@@ -35,7 +35,7 @@ export default function ProblemSection() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// The Problem</p>
+          <p className="label-mono mb-4">// The Problem</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
             Most business websites are<br />
             <span className="text-muted-foreground font-normal">costing you money, not making it.</span>

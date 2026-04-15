@@ -1,86 +1,85 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Card } from '@/components/ui/card';
 import { Settings, Smartphone, Brain, LineChart } from 'lucide-react';
 
+const cards = [
+  {
+    icon: Settings,
+    title: 'Customized Infrastructure',
+    description: 'Tailored software solutions built for your unique operational needs — not someone else\'s template.',
+    stats: '99.9% reliability',
+    accent: 'text-blue-400',
+    statColor: 'text-blue-400',
+  },
+  {
+    icon: Smartphone,
+    title: 'Modern Web & Mobile',
+    description: 'Cutting-edge interfaces that convert visitors into customers on every device.',
+    stats: '40% faster delivery',
+    accent: 'text-emerald-400',
+    statColor: 'text-emerald-400',
+  },
+  {
+    icon: Brain,
+    title: 'AI & Automation',
+    description: 'Intelligent systems that reduce manual work and surface insights automatically.',
+    stats: '85% efficiency boost',
+    accent: 'text-amber-400',
+    statColor: 'text-amber-400',
+  },
+  {
+    icon: LineChart,
+    title: 'Data Analytics',
+    description: 'Transforming raw data into decisions — dashboards and pipelines that actually get used.',
+    stats: '2.5x ROI increase',
+    accent: 'text-blue-400',
+    statColor: 'text-blue-400',
+  },
+];
+
 export default function ImpactShowcase() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
-  const cards = [
-    {
-      icon: Settings,
-      title: "Customized Infrastructure",
-      description: "Tailored software solutions built for your unique needs",
-      stats: "99.9% reliability",
-      gradient: "from-blue-500/20 via-indigo-500/20 to-purple-500/20",
-    },
-    {
-      icon: Smartphone,
-      title: "Modern Web & Mobile",
-      description: "Cutting-edge websites and mobile applications",
-      stats: "40% faster delivery",
-      gradient: "from-emerald-500/20 via-teal-500/20 to-cyan-500/20",
-    },
-    {
-      icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Intelligent solutions that learn and adapt",
-      stats: "85% efficiency boost",
-      gradient: "from-orange-500/20 via-red-500/20 to-pink-500/20",
-    },
-    {
-      icon: LineChart,
-      title: "Data Analytics",
-      description: "Transforming data into actionable insights",
-      stats: "2.5x ROI increase",
-      gradient: "from-violet-500/20 via-purple-500/20 to-fuchsia-500/20",
-    },
-  ];
-
   return (
-    <section id="impact" className="py-12 relative">
-      <div className="container">
-        <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Transforming Industries</h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            Our innovative solutions are reshaping industries and driving unprecedented growth across sectors.
-          </p>
-        </div>
-
-        <div 
-          ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+    <section id="impact" className="py-12 border-t border-border/40">
+      <div className="container max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="max-w-2xl mb-10"
         >
+          <p className="label-mono mb-4">// Impact</p>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+            Transforming how industries operate.
+          </h2>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            The businesses we work with don't just look better — they perform better.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {cards.map((card, index) => {
             const Icon = card.icon;
             return (
               <motion.div
                 key={card.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true, margin: '-60px' }}
+                whileHover={{ y: -3 }}
+                className="group rounded-xl border border-border/60 bg-card p-6 hover:border-primary/30 transition-colors duration-300 flex flex-col"
               >
-                <Card className="relative overflow-hidden group h-full hover:shadow-lg transition-all duration-300">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-100 group-hover:opacity-80 transition-opacity duration-300`} />
-                  <div className="relative p-4 sm:p-6 space-y-3 sm:space-y-4">
-                    <div className="inline-flex items-center justify-center p-3 rounded-full bg-background/60 backdrop-blur-sm">
-                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-semibold">{card.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{card.description}</p>
-                    <div className="pt-2">
-                      <span className="text-base sm:text-lg font-semibold text-primary">{card.stats}</span>
-                    </div>
-                  </div>
-                </Card>
+                <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className={`w-4 h-4 ${card.accent}`} />
+                </div>
+                <h3 className="text-sm font-semibold mb-2 text-foreground">{card.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed flex-1">{card.description}</p>
+                <div className="pt-4 mt-auto">
+                  <span className={`text-sm font-bold font-mono-code ${card.statColor}`}>{card.stats}</span>
+                </div>
               </motion.div>
             );
           })}
-        </div>
         </div>
       </div>
     </section>

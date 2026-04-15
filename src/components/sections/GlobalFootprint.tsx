@@ -1,82 +1,87 @@
-import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { MapPin, Users, Rocket, Globe as Globe2 } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+
+const stats = [
+  {
+    icon: MapPin,
+    value: 'Kigali',
+    label: 'Headquarters',
+    sub: 'Rwanda, Africa',
+    accent: 'text-blue-400',
+    bg: 'bg-blue-500/8',
+    delay: 0,
+  },
+  {
+    icon: Users,
+    value: '20+',
+    label: 'Team Members',
+    sub: 'Across 5+ countries',
+    accent: 'text-emerald-400',
+    bg: 'bg-emerald-500/8',
+    delay: 0.08,
+  },
+  {
+    icon: Rocket,
+    value: '30+',
+    label: 'Projects Delivered',
+    sub: 'Live in production',
+    accent: 'text-amber-400',
+    bg: 'bg-amber-500/8',
+    delay: 0.16,
+  },
+  {
+    icon: Globe2,
+    value: '5+',
+    label: 'Countries Served',
+    sub: 'And growing',
+    accent: 'text-blue-400',
+    bg: 'bg-blue-500/8',
+    delay: 0.24,
+  },
+];
 
 export default function GlobalFootprint() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const stats = [
-    {
-      icon: MapPin,
-      value: 'Kigali',
-      label: 'Headquarters',
-      gradient: 'from-blue-500/20 to-purple-500/20',
-      delay: 0,
-    },
-    {
-      icon: Users,
-      value: '20+',
-      label: 'Team Members',
-      gradient: 'from-emerald-500/20 to-teal-500/20',
-      delay: 0.1,
-    },
-    {
-      icon: Rocket,
-      value: '30+',
-      label: 'Projects Delivered',
-      gradient: 'from-orange-500/20 to-red-500/20',
-      delay: 0.2,
-    },
-    {
-      icon: Globe2,
-      value: '5+',
-      label: 'Countries Served',
-      gradient: 'from-indigo-500/20 to-blue-500/20',
-      delay: 0.3,
-    },
-  ];
-
   return (
-    <section className="py-16 bg-secondary/50">
-      <div className="container">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Our Global Footprint</h2>
-          <p className="text-sm sm:text-base text-muted-foreground">
-            Based in the heart of Kigali, delivering excellence across Africa
+    <section className="py-12 border-t border-border/40">
+      <div className="container max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="max-w-2xl mb-10"
+        >
+          <p className="label-mono mb-4">// Global Footprint</p>
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-3">
+            Based in Kigali.<br />Operating worldwide.
+          </h2>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            From East Africa to global markets — we build systems that work wherever your business is.
           </p>
-        </div>
+        </motion.div>
 
-        <div ref={ref} className="space-y-16">
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {stats.map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: stat.delay }}
-                >
-                  <Card className="relative h-full overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient}`} />
-                    <div className="relative p-4 sm:p-6">
-                      <div className="flex flex-col sm:flex-row items-center sm:space-x-4 mb-4 text-center sm:text-left">
-                        <div className="p-3 rounded-full bg-background/60 backdrop-blur-sm">
-                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                        </div>
-                        <div className="text-xl sm:text-2xl font-bold mt-2 sm:mt-0">{stat.value}</div>
-                      </div>
-                      <div className="text-sm sm:text-base text-muted-foreground text-center sm:text-left">{stat.label}</div>
-                    </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: stat.delay, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true, margin: '-60px' }}
+                whileHover={{ y: -3 }}
+                className="group rounded-xl border border-border/60 bg-card p-5 hover:border-primary/30 transition-colors duration-300"
+              >
+                <div className={`w-8 h-8 rounded-lg ${stat.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className={`w-3.5 h-3.5 ${stat.accent}`} />
+                </div>
+                <div className="text-2xl font-bold font-display text-foreground mb-1" style={{ letterSpacing: '-0.03em' }}>{stat.value}</div>
+                <div className="text-xs font-medium text-foreground/70 mb-0.5">{stat.label}</div>
+                <div className="text-xs text-muted-foreground/60">{stat.sub}</div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

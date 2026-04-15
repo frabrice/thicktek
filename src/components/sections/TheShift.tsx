@@ -35,7 +35,7 @@ export default function TheShift() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <p className="text-xs font-semibold text-primary tracking-widest uppercase mb-4 font-mono">// The Shift</p>
+          <p className="label-mono mb-4">// The Shift</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight tracking-tight">
             A website is not a page.<br />
             <span className="text-primary">It is a system.</span>
