@@ -35,6 +35,7 @@ export default function CorePillars() {
   return (
     <section className="py-12 bg-secondary/50">
       <div className="container">
+        <div className="max-w-6xl mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Core Pillars of Innovation</h2>
           <p className="text-sm sm:text-base text-muted-foreground">
@@ -69,6 +70,7 @@ export default function CorePillars() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

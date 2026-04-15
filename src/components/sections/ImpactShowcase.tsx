@@ -43,6 +43,7 @@ export default function ImpactShowcase() {
   return (
     <section id="impact" className="py-12 relative">
       <div className="container">
+        <div className="max-w-6xl mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Transforming Industries</h2>
           <p className="text-sm sm:text-base text-muted-foreground">
@@ -79,6 +80,7 @@ export default function ImpactShowcase() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Printer, Clock, BookOpen } from 'lucide-react';
+import { FileText, Download, Clock, BookOpen, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { generateCompanyProfilePdf } from '@/lib/generatePdf';
 
 interface DocItem {
   id: string;
@@ -8,7 +10,6 @@ interface DocItem {
   description: string;
   meta: string;
   status: 'available' | 'coming-soon';
-  href?: string;
 }
 
 const docs: DocItem[] = [
@@ -17,9 +18,8 @@ const docs: DocItem[] = [
     title: 'Company Profile',
     description:
       'A complete overview of ThickTek — who we are, what we build, selected projects, our engagement process, and contact information.',
-    meta: 'PDF · Opens print dialog',
+    meta: 'PDF · Instant download',
     status: 'available',
-    href: '/docs/company-profile.html',
   },
   {
     id: 'pricing',
@@ -32,6 +32,17 @@ const docs: DocItem[] = [
 ];
 
 export default function DocsPage() {
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async () => {
+    setDownloading(true);
+    try {
+      await generateCompanyProfilePdf();
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
     <main className="pt-[68px] pb-24 min-h-screen">
       <div className="container py-10">
@@ -78,16 +89,19 @@ export default function DocsPage() {
                       <p className="text-xs text-muted-foreground/60 mb-3">{doc.meta}</p>
                     </div>
                     {doc.status === 'available' ? (
-                      <a
-                        href={doc.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Button
+                        size="sm"
+                        className="h-8 text-xs gap-1.5 flex-shrink-0"
+                        onClick={handleDownload}
+                        disabled={downloading}
                       >
-                        <Button size="sm" className="h-8 text-xs gap-1.5 flex-shrink-0">
-                          <Printer className="w-3.5 h-3.5" />
-                          Save as PDF
-                        </Button>
-                      </a>
+                        {downloading ? (
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        ) : (
+                          <Download className="w-3.5 h-3.5" />
+                        )}
+                        {downloading ? 'Generating…' : 'Download PDF'}
+                      </Button>
                     ) : (
                       <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/60 bg-muted/30 flex-shrink-0">
                         <Clock className="w-3 h-3 text-muted-foreground" />

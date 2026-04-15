@@ -12,7 +12,7 @@ export default function CallToAction() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,hsl(213,94%,58%,0.06),transparent)]" />
       </div>
 
-      <div className="container max-w-5xl relative z-10">
+      <div className="container max-w-6xl relative z-10">
         <div className="rounded-xl border border-border/60 bg-card overflow-hidden">
           <motion.div
             initial={{ scaleX: 0 }}

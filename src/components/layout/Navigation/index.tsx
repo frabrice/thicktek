@@ -27,7 +27,8 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border/50">
-      <div className="container flex items-center justify-between" style={{ height: '68px' }}>
+      <div className="container" style={{ height: '68px' }}>
+      <div className="max-w-6xl mx-auto h-full flex items-center justify-between">
         <RouterLink to="/" className="flex items-center gap-3 group">
           <img
             src="/logo.png"
@@ -66,6 +67,7 @@ export function Navigation() {
         </div>
 
         <MobileNav />
+      </div>
       </div>
     </nav>
   );

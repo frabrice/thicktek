@@ -27,7 +27,7 @@ export default function TheShift() {
 
   return (
     <section className="py-16 border-t border-border/40">
-      <div className="container max-w-5xl">
+      <div className="container max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
