@@ -3,624 +3,761 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ThickTek — Company Profile</title>
+  <title>ThickTek — Company Profile 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --black: #0a0c0f;
-      --near-black: #111418;
-      --surface: #161b22;
-      --border: #21262d;
-      --muted: #8b949e;
-      --body: #c9d1d9;
-      --white: #f0f6fc;
-      --accent: #58a6ff;
-      --accent-dim: rgba(88, 166, 255, 0.12);
-      --green: #3fb950;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
-      background: var(--black);
-      color: var(--body);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
+      background: #ffffff;
+      color: #1e293b;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 11.5px;
+      line-height: 1.55;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
     .page {
-      max-width: 800px;
+      width: 794px;
       margin: 0 auto;
-      padding: 0;
+      background: #ffffff;
     }
 
-    /* ─── COVER ─── */
-    .cover {
-      background: var(--near-black);
-      border-bottom: 1px solid var(--border);
-      padding: 64px 56px 56px;
-      position: relative;
+    /* ─── PAGE BLOCKS ─── */
+    .page-block {
+      width: 794px;
+      min-height: 1123px;
+      max-height: 1123px;
       overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
 
-    .cover::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(88, 166, 255, 0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cover-top {
+    /* ─── HEADER ─── */
+    .doc-header {
+      padding: 28px 48px 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 56px;
+      border-bottom: 2px solid #1a6fd4;
+      flex-shrink: 0;
     }
 
-    .logo-block {
+    .logo-row {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .logo-mark {
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      background: #1a6fd4;
+      border-radius: 7px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 13px;
       font-weight: 800;
-      color: #000;
-      letter-spacing: -1px;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
     }
 
     .logo-name {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
-      color: var(--white);
+      color: #0f172a;
       letter-spacing: -0.3px;
     }
 
-    .doc-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
-
-    .cover-headline {
-      font-size: 42px;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-    }
-
-    .cover-headline span {
-      color: var(--accent);
-    }
-
-    .cover-sub {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 520px;
-      margin-bottom: 48px;
-    }
-
-    .cover-meta {
-      display: flex;
-      gap: 32px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .meta-label {
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-    }
-
-    .meta-value {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--white);
-    }
-
-    /* ─── SECTIONS ─── */
-    .section {
-      padding: 48px 56px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section:last-child {
-      border-bottom: none;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .section-tag::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1.5px;
-      background: var(--accent);
-    }
-
-    .section-title {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.5px;
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
-
-    .section-body {
-      font-size: 14px;
-      color: var(--body);
-      line-height: 1.75;
-      max-width: 620px;
-    }
-
-    /* ─── STAT ROW ─── */
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-    }
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -1px;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    /* ─── SERVICES ─── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 22px;
-    }
-
-    .service-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-
-    .service-desc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ─── PROJECTS ─── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 22px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    .project-category {
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .project-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .project-result {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ─── PROCESS ─── */
-    .process-list {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .process-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .step-number {
-      font-size: 11px;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
-      color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid rgba(88, 166, 255, 0.2);
-      border-radius: 6px;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .step-content {}
-
-    .step-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 3px;
-    }
-
-    .step-desc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* ─── FOOTER ─── */
-    .footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 32px 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-brand {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-    }
-
-    .footer-contact {
+    .header-right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       gap: 3px;
     }
 
-    .footer-contact a,
-    .footer-contact span {
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
+    .doc-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1a6fd4;
     }
 
-    .footer-contact a:hover {
-      color: var(--accent);
+    .doc-meta {
+      font-size: 10px;
+      color: #64748b;
     }
 
-    /* ─── PRINT ─── */
+    /* ─── HERO STRIP ─── */
+    .hero-strip {
+      background: #f8faff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 26px 48px 24px;
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+    }
+
+    .hero-headline span {
+      color: #1a6fd4;
+    }
+
+    .hero-sub {
+      font-size: 11.5px;
+      color: #475569;
+      line-height: 1.6;
+      max-width: 580px;
+    }
+
+    /* ─── PAGE 1 BODY ─── */
+    .p1-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 48px 0;
+      gap: 20px;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1a6fd4;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 1.5px;
+      background: #1a6fd4;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+
+    .section-body {
+      font-size: 11px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* ─── ABOUT ROW ─── */
+    .about-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .stat-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+      width: 148px;
+    }
+
+    .stat-card {
+      background: #f8faff;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #1a6fd4;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1a6fd4;
+      letter-spacing: -0.8px;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .stat-label {
+      font-size: 9.5px;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    /* ─── SERVICES GRID ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 7px;
+      padding: 13px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+    }
+
+    .service-card:nth-child(1)::before { background: #1a6fd4; }
+    .service-card:nth-child(2)::before { background: #0ea472; }
+    .service-card:nth-child(3)::before { background: #d97706; }
+    .service-card:nth-child(4)::before { background: #dc2626; }
+    .service-card:nth-child(5)::before { background: #7c3aed; }
+    .service-card:nth-child(6)::before { background: #0891b2; }
+
+    .service-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 10.5px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    /* ─── PAGE 1 FOOTER ─── */
+    .p1-footer {
+      padding: 14px 48px 16px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+
+    .p1-footer-tagline {
+      font-size: 10px;
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .p1-footer-page {
+      font-size: 9.5px;
+      color: #cbd5e1;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* ─── PAGE 2 ─── */
+    .p2-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 48px 0;
+      gap: 20px;
+    }
+
+    /* ─── WORK GRID ─── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .work-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 7px;
+      padding: 13px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+    }
+
+    .work-card:nth-child(1)::before { background: #1a6fd4; }
+    .work-card:nth-child(2)::before { background: #0ea472; }
+    .work-card:nth-child(3)::before { background: #d97706; }
+    .work-card:nth-child(4)::before { background: #7c3aed; }
+    .work-card:nth-child(5)::before { background: #dc2626; }
+    .work-card:nth-child(6)::before { background: #0891b2; }
+
+    .work-category {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 5px;
+    }
+
+    .work-card:nth-child(1) .work-category { color: #1a6fd4; }
+    .work-card:nth-child(2) .work-category { color: #0ea472; }
+    .work-card:nth-child(3) .work-category { color: #d97706; }
+    .work-card:nth-child(4) .work-category { color: #7c3aed; }
+    .work-card:nth-child(5) .work-category { color: #dc2626; }
+    .work-card:nth-child(6) .work-category { color: #0891b2; }
+
+    .work-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 5px;
+      line-height: 1.25;
+    }
+
+    .work-result {
+      font-size: 10.5px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .work-url {
+      font-size: 9px;
+      color: #94a3b8;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ─── PROCESS ROW ─── */
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      position: relative;
+    }
+
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      right: -4px;
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 5px solid #cbd5e1;
+    }
+
+    .step-badge {
+      width: 28px;
+      height: 28px;
+      background: #f0f7ff;
+      border: 1.5px solid #1a6fd4;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: #1a6fd4;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .step-desc {
+      font-size: 10px;
+      color: #64748b;
+      line-height: 1.45;
+    }
+
+    /* ─── WHY THICKTEK STRIP ─── */
+    .why-strip {
+      background: #f0f7ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .why-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .why-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1e40af;
+    }
+
+    .why-desc {
+      font-size: 10.5px;
+      color: #3b5a9a;
+      line-height: 1.45;
+    }
+
+    /* ─── PAGE 2 FOOTER ─── */
+    .doc-footer {
+      padding: 16px 48px 18px;
+      border-top: 2px solid #1a6fd4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      margin-top: auto;
+      background: #f8faff;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .footer-brand {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-tagline {
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .footer-contact-item {
+      font-size: 10.5px;
+      color: #475569;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .footer-location {
+      font-size: 10.5px;
+      color: #475569;
+    }
+
+    .footer-page {
+      font-size: 9.5px;
+      color: #94a3b8;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
     @media print {
-      body { background: white; color: #1a1a1a; }
-      .cover, .section, .footer { background: white !important; }
-      .cover::before { display: none; }
-      .stat-card, .service-card, .project-card { background: #f6f8fa !important; border-color: #e1e4e8 !important; }
-      .section-title, .cover-headline, .stat-value, .project-name, .step-title, .service-title, .footer-brand, .logo-name, .meta-value { color: #1a1a1a !important; }
-      .section-body, .stat-label, .service-desc, .project-result, .step-desc, .footer-contact span, .footer-contact a { color: #57606a !important; }
-      .project-category, .section-tag, .step-number { color: #0969da !important; }
-      .step-number { background: #ddf4ff !important; border-color: #b6e3ff !important; }
-      .project-card::before { background: linear-gradient(90deg, #0969da, transparent) !important; }
-      .cover-sub { color: #57606a !important; }
-      .meta-label { color: #57606a !important; }
-      .doc-label { background: #f6f8fa !important; border-color: #e1e4e8 !important; color: #57606a !important; }
-      .logo-mark { background: #0969da !important; }
-    }
-
-    @page {
-      margin: 0;
-      size: A4;
+      @page { margin: 0; size: A4; }
+      html, body { background: white; }
+      .page-block { page-break-after: always; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+<div class="page">
 
-    <!-- COVER -->
-    <div class="cover">
-      <div class="cover-top">
-        <div class="logo-block">
-          <div class="logo-mark">TT</div>
-          <span class="logo-name">ThickTek</span>
-        </div>
+  <!-- ═══════════════════════════════ PAGE 1 ═══════════════════════════════ -->
+  <div class="page-block">
+
+    <!-- Header -->
+    <div class="doc-header">
+      <div class="logo-row">
+        <div class="logo-mark">TT</div>
+        <span class="logo-name">ThickTek</span>
+      </div>
+      <div class="header-right">
         <span class="doc-label">Company Profile</span>
-      </div>
-
-      <div class="cover-headline">
-        Building digital systems<br />
-        that move businesses<br />
-        <span>forward.</span>
-      </div>
-
-      <p class="cover-sub">
-        ThickTek designs and builds production-grade software for businesses across Africa and beyond — from startups creating their first digital presence to established companies replacing manual operations with scalable systems.
-      </p>
-
-      <div class="cover-meta">
-        <div class="meta-item">
-          <span class="meta-label">Founded</span>
-          <span class="meta-value">2022</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Headquarters</span>
-          <span class="meta-value">Kigali, Rwanda</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Markets Served</span>
-          <span class="meta-value">Africa &amp; Global</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Website</span>
-          <span class="meta-value">thicktek.com</span>
-        </div>
+        <span class="doc-meta">Kigali, Rwanda · thicktek.com · 2025</span>
       </div>
     </div>
 
-    <!-- WHO WE ARE -->
-    <div class="section">
-      <div class="section-tag">About Us</div>
-      <h2 class="section-title">We build systems, not just websites.</h2>
-      <p class="section-body">
-        ThickTek is a software development company specializing in custom digital systems for businesses that need more than a template. We work across the full stack — from product strategy through to design, engineering, and launch — delivering platforms that are built to perform in real market conditions.
-      </p>
-      <p class="section-body" style="margin-top: 12px;">
-        Our work spans industries including mobility, property, hospitality, education, retail, and professional services. We partner closely with founders and operators to understand the actual business problem before writing a single line of code, resulting in systems that solve the right problems from day one.
-      </p>
-
-      <div class="stat-row">
-        <div class="stat-card">
-          <div class="stat-value">20+</div>
-          <div class="stat-label">Projects delivered across Africa and beyond</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">6+</div>
-          <div class="stat-label">Industries served including mobility, property, and retail</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">100%</div>
-          <div class="stat-label">Custom-built — no templates, no shortcuts</div>
-        </div>
+    <!-- Hero Strip -->
+    <div class="hero-strip">
+      <div class="hero-headline">
+        We build digital systems that<br />
+        move businesses <span>forward.</span>
       </div>
+      <p class="hero-sub">
+        ThickTek designs and engineers production-grade software for businesses across Africa and beyond — from startups establishing their first digital presence to established operators replacing manual processes with scalable systems that actually work.
+      </p>
     </div>
 
-    <!-- SERVICES -->
-    <div class="section">
-      <div class="section-tag">Services</div>
-      <h2 class="section-title">What we build</h2>
-      <p class="section-body">
-        Every engagement starts with understanding the business outcome. We then design and build the digital system that creates it.
-      </p>
+    <!-- Body -->
+    <div class="p1-body">
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-title">Custom Web Applications</div>
-          <div class="service-desc">Full-stack platforms built around your specific business logic — dashboards, portals, marketplaces, and operations systems.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-title">Mobile Applications</div>
-          <div class="service-desc">iOS and Android apps for consumer-facing products and internal operations. Built for the devices your users actually use.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-title">Professional Websites</div>
-          <div class="service-desc">High-performance websites engineered for conversion, visibility, and credibility. Not templates — real design and engineering.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-title">Business Operations Systems</div>
-          <div class="service-desc">Internal tools that replace spreadsheets and manual processes — inventory, CRM, scheduling, reporting, and more.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-title">Data &amp; Analytics Platforms</div>
-          <div class="service-desc">Dashboards and reporting systems that give operators real-time visibility into the metrics that drive their decisions.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-title">System Integration</div>
-          <div class="service-desc">Connecting your existing tools, APIs, and platforms into a unified system that eliminates manual data movement.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SELECTED WORK -->
-    <div class="section">
-      <div class="section-tag">Selected Work</div>
-      <h2 class="section-title">Projects we have delivered</h2>
-      <p class="section-body">
-        A selection of platforms built for clients across the region. Each represents a real business problem solved with a purpose-built system.
-      </p>
-
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-category">Marketplace &amp; Mobility</div>
-          <div class="project-name">KivuRide</div>
-          <div class="project-result">Structured ride-hailing platform giving fleet operators full real-time visibility over vehicles, drivers, and earnings across multiple cities.</div>
-        </div>
-        <div class="project-card">
-          <div class="project-category">Property &amp; Hospitality</div>
-          <div class="project-name">Property &amp; Hospitality Systems</div>
-          <div class="project-result">End-to-end management systems for property rentals and hospitality businesses — bookings, payments, guest communications, and reporting.</div>
-        </div>
-        <div class="project-card">
-          <div class="project-category">Consultancy &amp; Analytics</div>
-          <div class="project-name">Grit Africa Analytics</div>
-          <div class="project-result">Pan-African consultancy platform presenting data-driven research and professional services — built as a credible digital authority.</div>
-        </div>
-        <div class="project-card">
-          <div class="project-category">Retail &amp; Commerce</div>
-          <div class="project-name">Retail &amp; Commerce Platforms</div>
-          <div class="project-result">E-commerce and retail management systems handling inventory, orders, payments, and customer management for growing businesses.</div>
-        </div>
-        <div class="project-card">
-          <div class="project-category">Education &amp; Training</div>
-          <div class="project-name">Learning Management Systems</div>
-          <div class="project-result">Custom LMS platforms for training providers and educational institutions — course delivery, progress tracking, and certification.</div>
-        </div>
-        <div class="project-card">
-          <div class="project-category">Professional Services</div>
-          <div class="project-name">Service Business Portals</div>
-          <div class="project-result">Client-facing portals and internal tools for professional services firms to manage engagements, deliverables, and client relationships.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HOW WE WORK -->
-    <div class="section">
-      <div class="section-tag">Our Process</div>
-      <h2 class="section-title">How we work</h2>
-      <p class="section-body">
-        Every engagement follows a structured process designed to minimize risk and maximize the chance of delivering something that actually works in production.
-      </p>
-
-      <div class="process-list">
-        <div class="process-step">
-          <div class="step-number">01</div>
-          <div class="step-content">
-            <div class="step-title">Discover</div>
-            <div class="step-desc">We start with a deep-dive into the business — goals, constraints, existing systems, and the specific problem we are solving. No assumptions.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">02</div>
-          <div class="step-content">
-            <div class="step-title">Design</div>
-            <div class="step-desc">User experience, information architecture, and interface design — validated before any code is written. You see and approve the system before it is built.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">03</div>
-          <div class="step-content">
-            <div class="step-title">Build</div>
-            <div class="step-desc">Engineering with regular check-ins, demos, and the ability to course-correct. No black box development — you have full visibility throughout.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">04</div>
-          <div class="step-content">
-            <div class="step-title">Launch</div>
-            <div class="step-desc">Deployment, testing, and a structured handover. We do not consider the project complete until the system is live and performing as expected.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">05</div>
-          <div class="step-content">
-            <div class="step-title">Support</div>
-            <div class="step-desc">Ongoing maintenance, feature additions, and technical support. Most clients continue working with us long after the initial build.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
+      <!-- About + Stats -->
       <div>
+        <div class="section-label">About Us</div>
+        <div class="about-row">
+          <div class="about-text">
+            <div class="section-title">We build systems, not just websites.</div>
+            <p class="section-body">
+              ThickTek is a software development company specializing in custom digital systems for businesses that need more than a template. We work across the full stack — product strategy, design, engineering, and launch — delivering platforms built to perform in real market conditions.
+            </p>
+            <p class="section-body" style="margin-top: 7px;">
+              Our work spans mobility, property, hospitality, talent platforms, music technology, media, and professional services. We partner closely with founders and operators to understand the actual business problem before writing a single line of code, resulting in systems that solve the right problems from day one. Every project is custom-built, fully owned by the client, and designed to scale.
+            </p>
+          </div>
+          <div class="stat-col">
+            <div class="stat-card">
+              <div class="stat-value">20+</div>
+              <div class="stat-label">Projects delivered across Africa and beyond</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">8+</div>
+              <div class="stat-label">Industries served from mobility to media</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Custom-built — no templates, no shortcuts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Services -->
+      <div>
+        <div class="section-label">Services</div>
+        <div class="section-title" style="margin-bottom: 10px;">What we build</div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-name">Custom Web Applications</div>
+            <div class="service-desc">Full-stack platforms built around your specific business logic — dashboards, portals, marketplaces, and operations systems.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-name">Mobile Applications</div>
+            <div class="service-desc">iOS and Android apps for consumer-facing products and internal operations, built for the devices your users actually use.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-name">Professional Websites</div>
+            <div class="service-desc">High-performance sites engineered for conversion, visibility, and credibility. Real design and engineering — not templates.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-name">Business Operations Systems</div>
+            <div class="service-desc">Internal tools that replace spreadsheets and manual processes — inventory, CRM, scheduling, reporting, and more.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-name">Data &amp; Analytics Platforms</div>
+            <div class="service-desc">Dashboards and reporting systems that give operators real-time visibility into the metrics that drive their decisions.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-name">System Integration</div>
+            <div class="service-desc">Connecting your existing tools, APIs, and platforms into a unified system that eliminates manual data movement.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Page 1 Footer -->
+    <div class="p1-footer">
+      <span class="p1-footer-tagline">Building digital systems that move businesses forward.</span>
+      <span class="p1-footer-page">1 / 2</span>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════ PAGE 2 ═══════════════════════════════ -->
+  <div class="page-block">
+
+    <!-- Header (repeated for page 2) -->
+    <div class="doc-header">
+      <div class="logo-row">
+        <div class="logo-mark">TT</div>
+        <span class="logo-name">ThickTek</span>
+      </div>
+      <div class="header-right">
+        <span class="doc-label">Company Profile</span>
+        <span class="doc-meta">Kigali, Rwanda · thicktek.com · 2025</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="p2-body">
+
+      <!-- Selected Work -->
+      <div>
+        <div class="section-label">Selected Work</div>
+        <div class="section-title" style="margin-bottom: 10px;">Projects we have delivered</div>
+        <div class="work-grid">
+          <div class="work-card">
+            <div class="work-category">Marketplace &amp; Mobility</div>
+            <div class="work-name">KivuRide</div>
+            <div class="work-result">Structured ride-hailing platform giving fleet operators full real-time visibility over vehicles, drivers, and earnings across multiple cities.</div>
+            <div class="work-url">kivuride.com</div>
+          </div>
+          <div class="work-card">
+            <div class="work-category">Platforms &amp; Infrastructure</div>
+            <div class="work-name">Hire Me Africa</div>
+            <div class="work-result">Smart talent discovery platform connecting vetted African professionals with local and global employers through structured matching.</div>
+            <div class="work-url">hiremeafrika.com</div>
+          </div>
+          <div class="work-card">
+            <div class="work-category">Music Technology</div>
+            <div class="work-name">Dajah Tunes</div>
+            <div class="work-result">Digital infrastructure for music distribution, rights management, and revenue tracking for African artists and labels.</div>
+            <div class="work-url">dajahtunes.com</div>
+          </div>
+          <div class="work-card">
+            <div class="work-category">Consultancy &amp; Analytics</div>
+            <div class="work-name">Grit Africa Analytics</div>
+            <div class="work-result">Pan-African consultancy platform presenting data-driven research and professional services as a credible digital authority.</div>
+            <div class="work-url">gritafricaanalytics.com</div>
+          </div>
+          <div class="work-card">
+            <div class="work-category">Property &amp; Hospitality</div>
+            <div class="work-name">Property Systems</div>
+            <div class="work-result">End-to-end management systems for 8+ property and hospitality businesses — bookings, availability, guest flow, and reporting.</div>
+            <div class="work-url">8 properties transformed</div>
+          </div>
+          <div class="work-card">
+            <div class="work-category">Media &amp; Publishing</div>
+            <div class="work-name">Insightium</div>
+            <div class="work-result">Full editorial infrastructure for a media and insights brand — structured publishing, SEO architecture, and reader engagement.</div>
+            <div class="work-url">theinsightium.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Process -->
+      <div>
+        <div class="section-label">Our Process</div>
+        <div class="section-title" style="margin-bottom: 10px;">How every engagement is structured</div>
+        <div class="process-row">
+          <div class="process-step">
+            <div class="step-badge">01</div>
+            <div class="step-title">Discover</div>
+            <div class="step-desc">Deep-dive into the business, goals, constraints, and the specific problem to solve.</div>
+          </div>
+          <div class="process-step">
+            <div class="step-badge">02</div>
+            <div class="step-title">Design</div>
+            <div class="step-desc">UX, architecture, and interface design validated before any code is written.</div>
+          </div>
+          <div class="process-step">
+            <div class="step-badge">03</div>
+            <div class="step-title">Build</div>
+            <div class="step-desc">Engineering with regular demos and full client visibility throughout.</div>
+          </div>
+          <div class="process-step">
+            <div class="step-badge">04</div>
+            <div class="step-title">Launch</div>
+            <div class="step-desc">Deployment, testing, and structured handover once the system is live.</div>
+          </div>
+          <div class="process-step">
+            <div class="step-badge">05</div>
+            <div class="step-title">Support</div>
+            <div class="step-desc">Ongoing maintenance, features, and technical support post-launch.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Why ThickTek -->
+      <div>
+        <div class="section-label">Why ThickTek</div>
+        <div class="why-strip">
+          <div class="why-item">
+            <div class="why-title">Built for African markets</div>
+            <div class="why-desc">We understand the infrastructure constraints, user behaviors, and business dynamics of operating across Africa — and we build for them.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-title">Full-stack ownership</div>
+            <div class="why-desc">One team from strategy to deployment. No handoffs between agencies. Clear accountability at every stage of your project.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-title">Production-grade quality</div>
+            <div class="why-desc">Every system we ship is built to perform under real conditions — not demo environments. Scalable, secure, and maintained.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Page 2 Footer -->
+    <div class="doc-footer">
+      <div class="footer-left">
         <div class="footer-brand">ThickTek</div>
-        <div style="font-size: 12px; color: var(--muted); margin-top: 3px;">Building digital systems that move businesses forward.</div>
+        <div class="footer-tagline">Building digital systems that move businesses forward.</div>
       </div>
       <div class="footer-contact">
-        <span>admin@thicktek.com</span>
-        <a href="https://thicktek.com">thicktek.com</a>
-        <span>Kigali, Rwanda</span>
+        <span class="footer-contact-item">admin@thicktek.com</span>
+        <span class="footer-contact-item">thicktek.com</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-location">Kigali, Rwanda</span>
+        <span class="footer-page">2 / 2</span>
       </div>
     </div>
 
   </div>
+
+</div>
 </body>
 </html>
