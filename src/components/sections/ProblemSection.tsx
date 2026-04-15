@@ -26,7 +26,7 @@ export default function ProblemSection() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 relative border-t border-border/40">
+    <section className="py-16 relative border-t border-border/40">
       <div className="container max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -38,7 +38,7 @@ export default function Publications() {
   ];
 
   return (
-    <section className="py-24 bg-secondary/50">
+    <section className="py-16 bg-secondary/50">
       <div className="container">
         <div className="max-w-4xl mx-auto text-center mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Our Latest Publications</h2>

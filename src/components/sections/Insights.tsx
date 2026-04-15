@@ -64,7 +64,7 @@ export default function Insights() {
   const [featured, ...rest] = articles;
 
   return (
-    <section className="py-24 border-t border-border/40">
+    <section className="py-16 border-t border-border/40">
       <div className="container max-w-5xl">
 
         <motion.div

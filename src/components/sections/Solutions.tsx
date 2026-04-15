@@ -61,7 +61,7 @@ export default function Solutions() {
   const navigate = useNavigate();
 
   return (
-    <section id="solutions" className="py-24 border-t border-border/40">
+    <section id="solutions" className="py-16 border-t border-border/40">
       <div className="container max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

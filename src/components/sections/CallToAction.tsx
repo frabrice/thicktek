@@ -7,7 +7,7 @@ export default function CallToAction() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 border-t border-border/40 relative overflow-hidden">
+    <section className="py-16 border-t border-border/40 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,hsl(213,94%,58%,0.06),transparent)]" />
       </div>

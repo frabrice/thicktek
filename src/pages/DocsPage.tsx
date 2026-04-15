@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, Download, Clock, BookOpen } from 'lucide-react';
+import { FileText, Printer, Clock, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface DocItem {
@@ -9,7 +9,6 @@ interface DocItem {
   meta: string;
   status: 'available' | 'coming-soon';
   href?: string;
-  filename?: string;
 }
 
 const docs: DocItem[] = [
@@ -18,10 +17,9 @@ const docs: DocItem[] = [
     title: 'Company Profile',
     description:
       'A complete overview of ThickTek — who we are, what we build, selected projects, our engagement process, and contact information.',
-    meta: 'HTML · 1 document',
+    meta: 'PDF · Opens print dialog',
     status: 'available',
     href: '/docs/company-profile.html',
-    filename: 'ThickTek-Company-Profile.html',
   },
   {
     id: 'pricing',
@@ -35,7 +33,7 @@ const docs: DocItem[] = [
 
 export default function DocsPage() {
   return (
-    <main className="pt-[52px] pb-24 min-h-screen">
+    <main className="pt-[68px] pb-24 min-h-screen">
       <div className="container py-10">
 
         <motion.div
@@ -82,13 +80,12 @@ export default function DocsPage() {
                     {doc.status === 'available' ? (
                       <a
                         href={doc.href}
-                        download={doc.filename}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Button size="sm" className="h-8 text-xs gap-1.5 flex-shrink-0">
-                          <Download className="w-3.5 h-3.5" />
-                          Download
+                          <Printer className="w-3.5 h-3.5" />
+                          Save as PDF
                         </Button>
                       </a>
                     ) : (

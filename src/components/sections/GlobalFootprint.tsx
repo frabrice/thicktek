@@ -41,7 +41,7 @@ export default function GlobalFootprint() {
   ];
 
   return (
-    <section className="py-24 bg-secondary/50">
+    <section className="py-16 bg-secondary/50">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Our Global Footprint</h2>

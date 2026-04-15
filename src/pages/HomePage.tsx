@@ -8,7 +8,7 @@ import CallToAction from '@/components/sections/CallToAction';
 
 export default function HomePage() {
   return (
-    <main className="pt-[52px]">
+    <main className="pt-[68px]">
       <HeroSection />
       <ProblemSection />
       <TheShift />

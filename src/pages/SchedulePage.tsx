@@ -54,7 +54,7 @@ export default function SchedulePage() {
   };
 
   return (
-    <main className="pt-[52px] pb-16 min-h-screen">
+    <main className="pt-[68px] pb-16 min-h-screen">
       <div className="container py-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">

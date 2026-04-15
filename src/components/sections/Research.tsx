@@ -10,7 +10,7 @@ export default function Research() {
   });
 
   return (
-    <section id="research" className="py-24 bg-secondary/50">
+    <section id="research" className="py-16 bg-secondary/50">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">Research & Innovation</h2>

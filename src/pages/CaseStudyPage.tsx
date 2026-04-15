@@ -11,7 +11,7 @@ export default function CaseStudyPage() {
 
   if (!study) {
     return (
-      <main className="pt-[52px] pb-24 min-h-screen">
+      <main className="pt-[68px] pb-24 min-h-screen">
         <div className="container py-10 text-center">
           <h1 className="text-3xl font-bold mb-4">Case study not found</h1>
           <Button onClick={() => navigate('/case-studies')}>
@@ -26,7 +26,7 @@ export default function CaseStudyPage() {
   const nextStudy = caseStudies[currentIndex + 1] || caseStudies[0];
 
   return (
-    <main className="pt-[52px] pb-24 min-h-screen">
+    <main className="pt-[68px] pb-24 min-h-screen">
 
       {/* Hero */}
       <div className="relative h-[55vh] min-h-[400px] overflow-hidden">

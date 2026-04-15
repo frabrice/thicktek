@@ -15,7 +15,7 @@ export default function PortfolioPage() {
   const navigate = useNavigate();
 
   return (
-    <main className="pt-[52px] pb-24 min-h-screen">
+    <main className="pt-[68px] pb-24 min-h-screen">
       <div className="container py-10">
 
         {/* Header */}

@@ -26,7 +26,7 @@ export default function TheShift() {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 border-t border-border/40">
+    <section className="py-16 border-t border-border/40">
       <div className="container max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

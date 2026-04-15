@@ -18,7 +18,7 @@ export function CompanyDropdown() {
       onMouseLeave={() => setIsOpen(false)}
     >
       <button
-        className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground transition-colors duration-150"
+        className="flex items-center gap-1 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-150"
       >
         <span>Company</span>
         <ChevronDown className="w-3.5 h-3.5" />

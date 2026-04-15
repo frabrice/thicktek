@@ -37,7 +37,7 @@ export default function HeroSection() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden pt-[52px]">
+    <section className="min-h-screen flex items-center relative overflow-hidden pt-[68px]">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         <div

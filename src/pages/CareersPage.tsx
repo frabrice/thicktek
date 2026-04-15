@@ -6,7 +6,7 @@ import { Benefits } from '@/components/careers/Benefits';
 
 export default function CareersPage() {
   return (
-    <main className="pt-[52px]">
+    <main className="pt-[68px]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
