@@ -38,10 +38,17 @@ export function FooterLinks() {
         { label: "Mobile Apps", href: "/articles/mobile-apps" },
       ],
     },
+    {
+      title: "Docs",
+      links: [
+        { label: "Company Profile", href: "/docs" },
+        { label: "Pricing Guide", href: "/docs" },
+      ],
+    },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
       {sections.map((section) => (
         <div key={section.title}>
           <h3 className="text-sm sm:text-base font-semibold mb-3">{section.title}</h3>

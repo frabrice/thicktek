@@ -12,6 +12,7 @@ import PortfolioPage from '@/pages/PortfolioPage';
 import CaseStudyPage from '@/pages/CaseStudyPage';
 import HowItWorksPage from '@/pages/HowItWorksPage';
 import AuditPage from '@/pages/AuditPage';
+import DocsPage from '@/pages/DocsPage';
 import { PropertyTechArticle } from '@/components/articles/PropertyTechArticle';
 import { DataDrivenArticle } from '@/components/articles/DataDrivenArticle';
 import { WebsiteArticle } from '@/components/articles/WebsiteArticle';
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/work/:slug" element={<CaseStudyPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/audit" element={<AuditPage />} />
+            <Route path="/docs" element={<DocsPage />} />
             <Route path="/articles/property-tech" element={<PropertyTechArticle />} />
             <Route path="/articles/data-driven" element={<DataDrivenArticle />} />
             <Route path="/articles/website-design" element={<WebsiteArticle />} />
